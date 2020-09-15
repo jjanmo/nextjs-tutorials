@@ -1,0 +1,8 @@
+.container {
+	max-width: 36rem;
+	padding: 1rem 2rem;
+	margin: 3rem auto 6rem;
+	border-radius: 10px;
+	color: #eee;
+	background-color: #00cec9;
+}

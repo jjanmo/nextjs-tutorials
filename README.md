@@ -22,22 +22,29 @@
 
 ### How to use assets, metadata, CSS
 
-- React의 컴퍼넌트처럼 `Head` 컴퍼넌트가 존재하여 그 안에 title, metatag등을 수정할 수 있다.
+- React의 컴퍼넌트처럼 `Head` 컴퍼넌트가 존재하여 그 안에 title, metatag 등을 수정할 수 있다.
 
 - `CSS in JS`:
 
-Next.js에서는 기본적으로 `styled-jsx`를 사용하는 것 같다. `styled-component`와 비슷한 포멧을 가진 것 같다. 또한 `styled-jsx`대신 `styled-component`를 연결해서 사용할 수 도 있다.
+  Next.js에서는 기본적으로 `styled-jsx`를 사용하는 것 같다. `styled-component`와 비슷한 포멧을 가진 것 같다. 또한 `styled-jsx`대신 `styled-component`를 연결해서 사용할 수 도 있다.
 
-```jsx
-<style jsx>{`
-	// ...code here
-`}</style>
-```
+  ```jsx
+  <style jsx>{`
+  	// ...code here
+  `}</style>
+  ```
 
 - `CSS module`
 
-CSS를 모듈화하여 사용하는 방법으로 자동적으로 `유일한 클래스`을 생성하여 `지역 스코프`를 갖게 된다. 이것은 같은 클래스를 다른 파일에서 사용한다고 하더라고 충돌의 위험이 없어지게 만든다.
+  CSS를 모듈화하여 사용하는 방법으로 자동적으로 `유일한 클래스`을 생성하여 `지역 스코프`를 갖게 된다. 이것은 같은 클래스를 다른 파일에서 사용한다고 하더라고 충돌의 위험이 없어지게 만든다.
 
-`[name].module.css` : CSS module의 naming convention이다.
+  `[name].module.css` : CSS module의 naming convention이다.
 
-`import styles from './[name].module.css'`: 이런식으로 CSS를 가져와서 `styles`이라는 변수로 CSS파일 안의 클래스에 접근함으로서 사용할 수 있다.
+  `import styles from './[name].module.css'`: 이런 식으로 CSS를 가져와서 `styles`이라는 변수로 CSS파일 안의 클래스에 접근함으로서 사용할 수 있다.
+
+  `class="layout_container__2t4v2"` : 위에서 말한 **유일한 클래스**란 말의 의미는 클래스 끝에 특이한 문자 `__2t4v2` 가 붙어있는 것을 보면 알 수 있다.
+
+- Global style 적용법
+  Next.js에서는 페이지를 초기화하는데 내부적으로 `App`컴퍼넌트를 이용한다. 이것을 `오버라이딩`함으로서 페이지 초기화를 컨트롤 할 수 있다.
+
+  기본적인 `App`컴퍼넌트를 오버라이딩하기 위해선, \_app.js를 만듦으로서 이루어진다.

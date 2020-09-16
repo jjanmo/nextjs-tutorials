@@ -51,3 +51,54 @@
   기본적인 `App`컴퍼넌트를 오버라이딩하기 위해선, `_app.js`를 만듦으로서 이루어진다.
 
 - `polishing layout`
+
+### Pre-rendering and Data Fetching
+
+- Pre-rendering이란?
+
+  기본적으로 Next.js는 모든 페이지를 pre-rendering 한다. 즉 랜더링 전에 미리 HTML파일을 생성한다는 의미이다. 반면에 클라이언트사이드랜더링(CSR)은 빈 HTML파일에 동적자바스크립트에 의해서 DOM tree가 형성되어 추가되면서 랜더링이 진행된다. 이러한 차이로 인해 Next.js는 SEO에 유리하다.
+
+  ![pre-rendering](pre-rendering.PNG)
+
+  > 이미지로 보면 좀 더 직관적으로 pre-rendering에 대해서 이해할 수 있다.
+
+- Two form of pre-rendering
+  > `Static Generation`, `Server-side Rendering` : 두가지의 차이점은 **언제** HTML파일을 만들어내는지에 대한 시점의 차이이다.
+
+1. Static Generation
+
+   `build time` 에 한 번 HTML파일이 생성되고 그 뒤의 요청에서는 그 HTML을 재사용한다.
+
+2. Server-side Rendering
+
+   매 요청마다 HTML파일을 생성하여 랜더링한다.
+
+<br/>
+
+✔ Next.js는 상황에 따라서 개발자가 랜더링 방식을 선택하여 구현이 가능하도록 이루어진 것 같다.
+
+- `getStaticProps`
+
+> 해당 페이지에서 랜더링 전에 api로 받아올 데이터가 있다면 이 async 함수를 해당 페이지 컴퍼넌트와 같이 export를 하게 되면, 그 페이지가 렌더링되는 시점인, build time에 `getStaticProps`가 작동하여서 해당 컴퍼넌트에 받아온 데이터를 `props`으로서 주입시켜준다.
+
+```javascript
+  export default function Home(props){
+    //can use props passed by getStaticProps function
+  }
+
+  export async function getStaticProps(context){
+    const data = //... fetching data
+
+    retrun {
+      props : {
+        post : data
+       }, //passed to page component as props
+    }
+  }
+```
+
+> 내가 이해한 것이 맞다면, <u>여기서 궁금한 것</u>은, `getStaticProps` 여기서 리턴된 값을 어떻게 Home 컴퍼넌트에서 받아서 쓸 수 있는 것 일까? 그냥 내부적으로 같은 파일 안에서 export가 되면 해당 컴퍼넌트의 props으로 패치된 데이터가 주입되게 설정이 되어있는 것인지? 혹은 그런 것들을 어떤 식으로 구분하는지 등등 내부적으로 어떻게 작동하는지에 대한 여러가지 궁금증이 생긴다.
+
+> > `getStaticProps`가 같은 파일 안에 존재하면 pre-render 하는 시점에 알아서 이 컴퍼넌트에는 데이터를 불러올 것이 필요하다는 것을 알려주고 fetching을 하여 데이터를 불러오는 과정을 먼저 실행하여 props로 넣어주는 것 같다. 내부적으로 그런 식으로 작동하도록 만들어진 것이라고 우선 생각하다. 마치 리액트에서 setState로 state가 변경되면 자동으로 랜더링이 일어나는 것처럼 내부적으로 그렇게 작동되도록 하는 것 같다.
+
+![getstaticprops](getstaticprops.PNG)

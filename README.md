@@ -77,9 +77,13 @@
 
 ✔ Next.js는 상황에 따라서 개발자가 랜더링 방식을 선택하여 구현이 가능하도록 이루어진 것 같다.
 
+<br/>
+
 - `getStaticProps`
 
 > 해당 페이지에서 랜더링 전에 api로 받아올 데이터가 있다면 이 async 함수를 해당 페이지 컴퍼넌트와 같이 export를 하게 되면, 그 페이지가 렌더링되는 시점인, build time에 `getStaticProps`가 작동하여서 해당 컴퍼넌트에 받아온 데이터를 `props`으로서 주입시켜준다.
+
+> `getStaticProps`는 **server-side** 에서 작동한다.
 
 ```javascript
   export default function Home(props){
@@ -102,3 +106,19 @@
 > > `getStaticProps`가 같은 파일 안에 존재하면 pre-render 하는 시점에 알아서 이 컴퍼넌트에는 데이터를 불러올 것이 필요하다는 것을 알려주고 fetching을 하여 데이터를 불러오는 과정을 먼저 실행하여 props로 넣어주는 것 같다. 내부적으로 그런 식으로 작동하도록 만들어진 것이라고 우선 생각하다. 마치 리액트에서 setState로 state가 변경되면 자동으로 랜더링이 일어나는 것처럼 내부적으로 그렇게 작동되도록 하는 것 같다.
 
 ![getstaticprops](getstaticprops.PNG)
+
+<br/>
+
+- `getServerSideProps`
+
+> 클라이언트의 요청 때마다 데이터를 받아와야 한다면, 이 때는 pre-rendering(Static Generation)방식 보다는 SSR(Server-Side-Rendering) 을 추천한다. 이 때는 `getServerSideProps()`라는 메소드를 사용한다.
+
+```javascript
+export async function getServerSideProps(context) {
+	return {
+		props: {
+			// props for your component
+		},
+	};
+}
+```

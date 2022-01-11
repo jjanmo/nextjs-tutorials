@@ -1,5 +1,3 @@
-import Navbar from './Navbar';
-
 export default function Layout({ children }) {
   return (
     <>
@@ -7,7 +5,7 @@ export default function Layout({ children }) {
       <style jsx>{`
         div {
           width: 600px;
-          height: 700px;
+          height: 800px;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;

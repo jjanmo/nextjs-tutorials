@@ -12,7 +12,7 @@ export default function Layout({ children }) {
           flex-direction: column;
           justify-content: flex-start;
           align-items: center;
-          background-color: red;
+          background: #f9ca24;
           padding: 20px 10px;
           border-radius: 10px;
           overflow: hidden;

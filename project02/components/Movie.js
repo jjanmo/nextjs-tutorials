@@ -1,20 +1,73 @@
 export default function Movie(props) {
-  console.log(props);
   return (
-    <>
-      <div className="container">
-        <div>title</div>
-        <div>content</div>
-      </div>
+    <div className="container">
+      <div className="poster"></div>
+      <div className="title">{props.original_title}</div>
       <style jsx>{`
         .container {
-          margin: 0 auto;
-          background: dodgerblue;
           width: 100%;
-          height: 150px;
-          background-image: url(https://image.tmdb.org/t/p/w500/${poster_path});
+          height: 195px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          cursor: pointer;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+        .container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background-color: #8a8a8a;
+          opacity: 0.5;
+          transition: all 0.3s ease-in-out;
+        }
+        .container:hover::before {
+          width: 0;
+        }
+        .container::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 100%;
+          background-color: #8a8a8a;
+          opacity: 0.5;
+          transition: all 0.3s ease-in-out;
+        }
+        .container:hover::after {
+          width: 0;
+        }
+        .poster {
+          width: 100%;
+          height: 195px;
+          background-repeat: no-repeat;
+          background-image: url('https://image.tmdb.org/t/p/w500/${props.poster_path}');
+          background-size: contain;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .title {
+          position: absolute;
+          color: white;
+          font-weight: bold;
+          width: 95%;
+          text-align: center;
+          z-index: 10;
+          transition: opacity 0.3s ease-in-out;
+          word-break: break-word;
+        }
+        .container:hover .title {
+          opacity: 0;
         }
       `}</style>
-    </>
+    </div>
   );
 }

@@ -4,8 +4,8 @@ export default function Layout({ children }) {
       <div>{children}</div>
       <style jsx>{`
         div {
-          width: 600px;
-          height: 800px;
+          width: 45%;
+          height: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -13,11 +13,7 @@ export default function Layout({ children }) {
           background: #f9ca24;
           padding: 20px 10px;
           border-radius: 10px;
-          overflow: hidden;
-          position: absolute;
-          top: 30%;
-          left: 50%;
-          transform: translate(-50%, -30%);
+          margin: 0 auto;
         }
       `}</style>
     </>

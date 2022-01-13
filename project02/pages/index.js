@@ -29,13 +29,13 @@ export default function Home() {
             height: 95%;
             font-size: 15px;
             display: grid;
-            grid-template-columns: repeat(4, 120px);
+            grid-template-columns: repeat(5, 130px);
             row-gap: 10px;
-            column-gap: 10px;
+            column-gap: 20px;
             margin: 0 auto;
             justify-content: center;
-            overflow: auto;
             margin: 10px 0;
+            overflow: auto;
           }
         `}
       </style>

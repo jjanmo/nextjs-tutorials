@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 import SEO from '../../components/SEO';
+import logo from '../../assets/imdb-logo.png';
 
 export default function Detail() {
   const router = useRouter();
@@ -18,7 +20,6 @@ export default function Detail() {
     fetchData();
   }, []);
 
-  console.log(movie);
   return (
     <>
       <SEO title={router.query.title || ''} />
@@ -28,10 +29,17 @@ export default function Detail() {
             <div className="background"></div>
             <div className="poster" />
             <div className="info">
-              <div>{movie?.original_title}</div>
-              <div>{movie?.genres.map((g) => g.name).join('·')}</div>
-              <div>{movie?.release_date}</div>
-              <p>{movie?.overview}</p>
+              <h1>{movie?.original_title}</h1>
+              <p className="header">
+                <div>{movie?.genres?.map((g) => g.name).join(' · ')}</div>
+                <div>{movie?.release_date}</div>
+                <Link href={`https://www.imdb.com/title/${movie?.imdb_id}/`}>
+                  <a target="_blank">
+                    <Image src={logo} alt="logo" width={50} height={20} />
+                  </a>
+                </Link>
+              </p>
+              <p className="overview">{movie?.overview}</p>
             </div>
           </div>
         </>
@@ -43,6 +51,7 @@ export default function Detail() {
           .container {
             width: 95%;
             height: 95%;
+            padding-top: 6vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -63,9 +72,8 @@ export default function Detail() {
           }
           .poster {
             z-index: 10;
-            width: 40%;
-            height: 100%;
-            margin-right: 2%;
+            width: 300px;
+            height: 450px;
             background-image: url('https://image.tmdb.org/t/p/w500/${movie?.poster_path}');
             background-position: center;
             background-size: contain;
@@ -75,11 +83,35 @@ export default function Detail() {
           }
           .info {
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
+          }
+          .info h1 {
+            all: unset;
+            width: 75%;
+            margin-botton: 0;
+            font-size: 2rem;
+            margin: 20px 0 5px;
+          }
+          .info .header {
+            display: flex;
+            width: 90%;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+          }
+          .info .header > * {
+            margin-right: 10px;
+          }
+          .info .overview {
+            width: 75%;
+            white-space: pre-wrap;
+            word-break: break-all;
           }
         `}
       </style>
-      <div></div>
     </>
   );
 }

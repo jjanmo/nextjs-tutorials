@@ -18,12 +18,16 @@ export default function Home() {
   return (
     <>
       <SEO title="Home" />
+      {!movies && <h1 className="loader">Loading...</h1>}
       <div className="container">
-        {!movies && <h1>Loading...</h1>}
         {movies && movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
       </div>
       <style jsx>
         {`
+          .loader {
+            width: 95%;
+            text-align: center;
+          }
           .container {
             width: 95%;
             height: 95%;

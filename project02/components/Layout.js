@@ -1,11 +1,11 @@
-export default function Layout({ children }) {
+export default function Layout({ children, type }) {
   return (
     <>
       <div>{children}</div>
       <style jsx>{`
         div {
-          width: 45%;
-          height: 96vh;
+          width: 40vw;
+          height: ${type === 'Detail' ? '95vh' : 'auto'};
           display: flex;
           flex-direction: column;
           justify-content: flex-start;

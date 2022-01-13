@@ -33,12 +33,11 @@ export default function Home() {
             height: 95%;
             font-size: 15px;
             display: grid;
-            grid-template-columns: repeat(5, 130px);
+            grid-template-columns: repeat(4, 130px);
             row-gap: 10px;
             column-gap: 20px;
             margin: 10px auto;
             justify-content: center;
-            overflow: auto;
           }
         `}
       </style>

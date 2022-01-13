@@ -27,12 +27,12 @@ export default function Detail() {
         <>
           <div className="container">
             <div className="background"></div>
-            <div className="poster" />
+            <div className="poster"></div>
             <div className="info">
               <h1>{movie?.original_title}</h1>
               <p className="header">
-                <div>{movie?.genres?.map((g) => g.name).join(' · ')}</div>
-                <div>{movie?.release_date}</div>
+                <span>{movie?.genres?.map((g) => g.name).join(' · ')}</span>
+                <span>{movie?.release_date}</span>
                 <Link href={`https://www.imdb.com/title/${movie?.imdb_id}/`}>
                   <a target="_blank">
                     <Image src={logo} alt="logo" width={50} height={20} />
@@ -56,6 +56,7 @@ export default function Detail() {
             flex-direction: column;
             align-items: center;
             position: relative;
+            margin: auto;
           }
           .background {
             position: absolute;

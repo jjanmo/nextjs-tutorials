@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 export default function Movie(props) {
   const router = useRouter();
 
-  const onClick = () => {
+  const onClick = useCallback(() => {
     router.push(
       {
         pathname: `/movies/${props.id}`,
@@ -14,7 +14,7 @@ export default function Movie(props) {
       },
       `/movies/${props.id}`
     );
-  };
+  }, []);
 
   return (
     <div className="container" onClick={onClick}>

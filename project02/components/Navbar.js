@@ -19,14 +19,14 @@ export default function Navbar() {
             border-radius: 5px;
             display: flex;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             overflow: hidden;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           }
           a {
             width: 50%;
             text-align: center;
-            padding: 5px 0;
+            padding: 10px 0;
             background: #2c3e50;
           }
           .active {

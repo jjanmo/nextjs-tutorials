@@ -5,7 +5,7 @@ export default function Layout({ children }) {
       <style jsx>{`
         div {
           width: 45%;
-          height: 100vh;
+          height: 96vh;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -13,7 +13,7 @@ export default function Layout({ children }) {
           background: #f9ca24;
           padding: 20px 10px;
           border-radius: 10px;
-          margin: 0 auto;
+          margin: 2vh auto;
         }
       `}</style>
     </>

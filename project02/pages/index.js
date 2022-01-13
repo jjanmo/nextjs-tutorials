@@ -26,6 +26,7 @@ export default function Home() {
         {`
           .loader {
             width: 95%;
+            height: 95vh;
             text-align: center;
           }
           .container {

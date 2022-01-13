@@ -30,6 +30,7 @@ export default function Detail() {
             <div className="poster"></div>
             <div className="info">
               <h1>{movie?.original_title}</h1>
+              {movie?.original_language !== 'en' && <h3>{movie?.title}</h3>}
               <p className="header">
                 <span>{movie?.genres?.map((g) => g.name).join(' · ')}</span>
                 <span>{movie?.release_date}</span>
@@ -63,7 +64,7 @@ export default function Detail() {
             top: 0;
             left: 0;
             width: 96%;
-            height: 96%;
+            height: 98%;
             margin: 2% 2%;
             background-image: url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}');
             background-position: center;
@@ -93,9 +94,15 @@ export default function Detail() {
           .info h1 {
             all: unset;
             width: 75%;
-            margin-botton: 0;
             font-size: 2rem;
-            margin: 20px 0 5px;
+            margin-top: 20px;
+          }
+          .info h3 {
+            all: unset;
+            width: 80%;
+            text-align: right;
+            font-size: 1.4rem;
+            margin: 5px 0 15px;
           }
           .info .header {
             display: flex;

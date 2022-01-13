@@ -1,6 +1,23 @@
+import { useCallback } from 'react';
+import { useRouter } from 'next/router';
+
 export default function Movie(props) {
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push(
+      {
+        pathname: `/movies/${props.id}`,
+        query: {
+          title: props.original_title,
+        },
+      },
+      `/movies/${props.id}`
+    );
+  };
+
   return (
-    <div className="container">
+    <div className="container" onClick={onClick}>
       <div className="poster"></div>
       <div className="title">{props.original_title}</div>
       <style jsx>{`

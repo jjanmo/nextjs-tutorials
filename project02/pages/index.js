@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 import SEO from '../components/SEO';
 
 export default function Home() {
   const [movies, setMovies] = useState(null);
 
-  const fetchDate = async () => {
+  const fetchData = useCallback(async () => {
     const response = await fetch('/api/movies').then((res) => res.json());
-    const movies = response.results;
-    setMovies(movies);
-  };
+    const _movies = response.results;
+    setMovies(_movies);
+  }, []);
 
   useEffect(async () => {
-    fetchDate();
+    fetchData();
   }, []);
 
   return (
@@ -32,9 +32,8 @@ export default function Home() {
             grid-template-columns: repeat(5, 130px);
             row-gap: 10px;
             column-gap: 20px;
-            margin: 0 auto;
+            margin: 10px auto;
             justify-content: center;
-            margin: 10px 0;
             overflow: auto;
           }
         `}

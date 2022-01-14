@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SEO from '../../components/SEO';
 import logo from '../../assets/imdb-logo.png';
+import Loader from '../../components/Loader';
 
 export default function Detail() {
   const router = useRouter();
@@ -45,14 +46,16 @@ export default function Detail() {
           </div>
         </>
       ) : (
-        <h1>Loading...</h1>
+        <div className="loader">
+          <Loader />
+        </div>
       )}
       <style jsx>
         {`
           .container {
             width: 95%;
-            height: 95%;
-            padding-top: 6vh;
+            height: 92%;
+            padding-top: 5vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -117,6 +120,13 @@ export default function Detail() {
             width: 75%;
             white-space: pre-wrap;
             word-break: break-all;
+          }
+          .loader {
+            width: 95%;
+            height: 75%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         `}
       </style>

@@ -1,34 +1,46 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Movie from '../components/Movie';
 import SEO from '../components/SEO';
+import useFetch from '../hooks/useFetch';
+import Loader from '../components/Loader';
 
 export default function Home() {
-  const [movies, setMovies] = useState(null);
+  const [page, setPage] = useState(1);
 
-  const fetchData = useCallback(async () => {
-    const response = await fetch('/api/movies').then((res) => res.json());
-    const _movies = response.results;
-    setMovies(_movies);
-  }, []);
+  const { movies, isLoading, error, hasMore } = useFetch(page);
 
-  useEffect(async () => {
-    fetchData();
-  }, []);
+  const observer = useRef();
+  const lastElement = useCallback(
+    (node) => {
+      if (isLoading) return;
+      if (observer.current) observer.current.disconnect();
+
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPage((prev) => prev + 1);
+        }
+      });
+
+      if (node) observer.current.observe(node);
+    },
+    [isLoading, hasMore]
+  );
 
   return (
     <>
       <SEO title="Home" />
-      {!movies && <h1 className="loader">Loading...</h1>}
       <div className="container">
-        {movies && movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
+        {movies && movies.length > 0 && movies.map((movie, index) => <Movie key={movie.id} {...movie} />)}
+        {isLoading && (
+          <div className="loader">
+            <Loader />
+          </div>
+        )}
+        {error && <h1>Error!!</h1>}
       </div>
+      <div ref={lastElement}></div>
       <style jsx>
         {`
-          .loader {
-            width: 95%;
-            height: 95vh;
-            text-align: center;
-          }
           .container {
             width: 95%;
             height: 95%;
@@ -39,6 +51,11 @@ export default function Home() {
             column-gap: 20px;
             margin: 10px auto;
             justify-content: center;
+          }
+          .loader {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
           }
         `}
       </style>

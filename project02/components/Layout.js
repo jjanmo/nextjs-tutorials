@@ -4,7 +4,7 @@ export default function Layout({ children, type }) {
       <div>{children}</div>
       <style jsx>{`
         div {
-          width: 40vw;
+          width: 50vw;
           height: ${type !== 'Home' ? '95vh' : 'auto'};
           display: flex;
           flex-direction: column;

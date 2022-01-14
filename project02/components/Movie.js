@@ -1,7 +1,7 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
-export default function Movie(props) {
+export default memo(function Movie(props) {
   const router = useRouter();
 
   const onClick = useCallback(() => {
@@ -87,4 +87,4 @@ export default function Movie(props) {
       `}</style>
     </div>
   );
-}
+});

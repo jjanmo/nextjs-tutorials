@@ -16,6 +16,6 @@
 
 ## Project02
 
-> Start Next.js with NomadCoders 🚀 [링크](https://nomadcoders.co/nextjs-fundamentals)
+> Start Next.js with [NomadCoders](https://nomadcoders.co/nextjs-fundamentals) 🚀
 
 > Just simple Movie App with infinite Scroll

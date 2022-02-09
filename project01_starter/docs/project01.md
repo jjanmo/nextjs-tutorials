@@ -58,7 +58,7 @@ Next.js에 대해서 안 지는 거의 1년 반쯤 되었지만, 사실상 몰�
 
   기본적으로 Next.js는 모든 페이지를 pre-rendering 한다. 즉 랜더링 전에 미리 HTML파일을 생성한다는 의미이다. 반면에 클라이언트사이드랜더링(CSR)은 빈 HTML파일에 동적자바스크립트에 의해서 DOM tree가 형성되어 추가되면서 랜더링이 진행된다. 이러한 차이로 인해 Next.js는 SEO에 유리하다.
 
-  ![pre-rendering](pre-rendering.PNG)
+  ![pre-rendering](../screenshots/pre-rendering.png)
 
   > 이미지로 보면 좀 더 직관적으로 pre-rendering에 대해서 이해할 수 있다.
 
@@ -105,7 +105,7 @@ Next.js에 대해서 안 지는 거의 1년 반쯤 되었지만, 사실상 몰�
 
 > > `getStaticProps`가 같은 파일 안에 존재하면 pre-render 하는 시점에 알아서 이 컴퍼넌트에는 데이터를 불러올 것이 필요하다는 것을 알려주고 fetching을 하여 데이터를 불러오는 과정을 먼저 실행하여 props로 넣어주는 것 같다. 내부적으로 그런 식으로 작동하도록 만들어진 것이라고 우선 생각하다. 마치 리액트에서 setState로 state가 변경되면 자동으로 랜더링이 일어나는 것처럼 내부적으로 그렇게 작동되도록 하는 것 같다.
 
-![getstaticprops](getstaticprops.PNG)
+![getstaticprops](../screenshots/getstaticprops.png)
 
 <br/>
 

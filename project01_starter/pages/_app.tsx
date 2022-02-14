@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Layout from '../components/Layout';
-import { title } from '../constants/sites';
-import '../styles/global.css';
+import Layout from '@components/Layout';
+import { title } from '@constants/sites';
+import '@styles/global.css';
 
 function App({ Component, pageProps }) {
   return (

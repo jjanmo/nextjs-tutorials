@@ -1,5 +1,3 @@
-import Counter from '@components/Counter';
-
 export default function Home() {
   return (
     <>
@@ -8,9 +6,6 @@ export default function Home() {
         <p>
           Welcome to <a href="https://nextjs.org/learn">our Next.js tutorial</a>
         </p>
-      </section>
-      <section>
-        <Counter />
       </section>
     </>
   );

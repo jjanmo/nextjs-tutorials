@@ -3,18 +3,20 @@
 > Next.js에 대해서 배우고 공부한 기록을 남기는 저장소이다.
 
 <details>
-<summary>📝 Log</summary>
-21.12.23 restart repo <br />
-22.01.14 project02 Completed 🚀 <br />
+<summary>학습로그 📝</summary>
+
+- 21년 12월 : Next.js에 대해서 본격적으로 시작
+- 22년 1월 : project02 완료 😄
+
 </details>
 
-## Project01 : Starter
+## Project01 : Starter [-ing]
 
-> [Next 공식 홈페이지](https://nextjs.org/)의 Tutorials를 실습해보면서 Next.js의 큰 그림을 알아보자.
+> [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) 실습하기
 
-> [Summarized](./project01_starter/docs/project01.md)
+> [Next.js 13 공식문서](https://nextjs.org/docs) 톺아보기
 
-## Project02
+## Project02 [done]
 
 > Start Next.js with [NomadCoders](https://nomadcoders.co/nextjs-fundamentals) 🚀
 

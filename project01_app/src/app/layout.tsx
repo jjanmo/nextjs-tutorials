@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import './globals.css';
 import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
-  title: 'Next App',
-  description: 'Next.js using app directory',
+  title: 'Random Connect',
+  description: 'You can connect with someone now.',
 };
 
 export default function RootLayout({
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+
+        {children}
+      </body>
     </html>
   );
 }

@@ -18,7 +18,9 @@ export default function RootLayout({
       <body>
         <Navbar />
 
-        {children}
+        <main className="min-h-[calc(100vh-5rem)] w-full bg-green-50">
+          {children}
+        </main>
       </body>
     </html>
   );

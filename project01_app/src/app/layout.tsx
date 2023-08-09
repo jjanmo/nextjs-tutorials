@@ -7,22 +7,22 @@ export const metadata: Metadata = {
   description: 'You can connect with someone now.',
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootProps {
   children: React.ReactNode;
-}) {
+  modal: React.ReactNode;
+}
+
+export default function RootLayout({ children, modal }: RootProps) {
   return (
     <html>
       <body>
-        <div id="root-modal"></div>
-
         <header>
           <Navbar />
         </header>
 
         <main className="min-h-[calc(100vh-5rem)] w-full bg-green-50">
           {children}
+          {modal}
         </main>
       </body>
     </html>

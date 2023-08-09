@@ -37,34 +37,29 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <div className="w-9/12 pt-10 mx-auto">
-        <h1 className="text-3xl uppercase text-center text-slate-300 mb-10">
-          This will be your hyper connect!
-        </h1>
+    <div className="w-9/12 pt-10 mx-auto">
+      <h1 className="text-3xl uppercase text-center text-slate-300 mb-10">
+        This will be your hyper connect!
+      </h1>
 
-        <section>
-          <ul className="grid grid-cols-5 gap-5 row-auto">
-            {connections.map(({ id, avatarId, name }) => (
-              <li
-                key={id}
-                className="flex justify-center items-center flex-col"
-              >
-                <Link href={`/connect/${id}`}>
-                  <Image
-                    className="rounded-lg"
-                    width={180}
-                    height={180}
-                    src={`${AVATAR_URL}?img=${avatarId}`}
-                    alt="avatar"
-                  />
-                </Link>
-                <div className="text-center">{name}</div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </>
+      <section>
+        <ul className="grid grid-cols-5 gap-5 row-auto">
+          {connections.map(({ id, avatarId, name }) => (
+            <li key={id} className="flex justify-center items-center flex-col">
+              <Link href={`/connect/${id}`}>
+                <Image
+                  className="rounded-lg"
+                  width={180}
+                  height={180}
+                  src={`${AVATAR_URL}?img=${avatarId}`}
+                  alt="avatar"
+                />
+              </Link>
+              <div className="text-center">{name}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
   );
 }

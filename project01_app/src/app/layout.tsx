@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import './globals.css';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
@@ -16,7 +15,11 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Navbar />
+        <div id="root-modal"></div>
+
+        <header>
+          <Navbar />
+        </header>
 
         <main className="min-h-[calc(100vh-5rem)] w-full bg-green-50">
           {children}

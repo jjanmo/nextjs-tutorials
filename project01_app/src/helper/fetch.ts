@@ -4,6 +4,8 @@ type Args<T = {}> = {
 };
 type Method = 'get' | 'post' | 'patch' | 'delete';
 
+const BASE_URL = 'http://localhost:3000';
+
 const configure = (method: Method) => ({
   method,
   header: {
@@ -12,17 +14,17 @@ const configure = (method: Method) => ({
 });
 
 export const read = ({ url }: Args) => {
-  return fetch(url, configure('get'));
+  return fetch(`${BASE_URL}${url}`, configure('get'));
 };
 
 export const create = ({ url, data }: Args) => {
-  return fetch(url, { ...configure('post'), body: JSON.stringify(data) });
+  return fetch(`${BASE_URL}${url}`, { ...configure('post'), body: JSON.stringify(data) });
 };
 
 export const update = ({ url, data }: Args) => {
-  return fetch(url, { ...configure('patch'), body: JSON.stringify(data) });
+  return fetch(`${BASE_URL}${url}`, { ...configure('patch'), body: JSON.stringify(data) });
 };
 
 export const remove = ({ url }: Args) => {
-  return fetch(url, configure('delete'));
+  return fetch(`${BASE_URL}${url}`, configure('delete'));
 };

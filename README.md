@@ -1,23 +1,15 @@
 # Next.js Tutorials
 
-> Next.js에 대해서 배우고 공부한 기록을 남기는 저장소이다.
+> Next.js로 작은 프로젝트들을 만들어보는 저장소 🔖
 
-<details>
-<summary>학습로그 📝</summary>
+## Project01_app [-ing]
 
-- 21년 12월 : Next.js에 대해서 본격적으로 시작
-- 22년 1월 : project02 완료 😄
+- Next.js 13버전의 `App Router`를 이용하여 간단한 CRUD 앱을 만들어보자.
 
-</details>
+  > feat. [생활코딩](https://opentutorials.org/course/5098)
 
-## Project01 : Starter [-ing]
+## Project02 [done at 2022]
 
-> [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) 실습하기
+- Just simple Movie App with infinite Scroll
 
-> [Next.js 13 공식문서](https://nextjs.org/docs) 톺아보기
-
-## Project02 [done]
-
-> Start Next.js with [NomadCoders](https://nomadcoders.co/nextjs-fundamentals) 🚀
-
-> Just simple Movie App with infinite Scroll
+  > Start Next.js with [NomadCoders](https://nomadcoders.co/nextjs-fundamentals) 🚀

@@ -1,6 +1,5 @@
-import { NextResponse } from 'next/server';
-import data from '@/app/api/data.json';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
-  return NextResponse.json(data.connections);
+export async function GET(request: NextRequest) {
+  return NextResponse.json('');
 }

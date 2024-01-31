@@ -5,7 +5,7 @@ import { read } from '@/helper/fetch';
 import { Connection } from '@/interface/connection';
 
 export default async function Home() {
-  const response = await read({ url: '/api/connections' });
+  const response = await read({ url: '/api/connect' });
   const data = (await response.json()) as Connection[];
 
   return (

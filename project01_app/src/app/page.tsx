@@ -9,12 +9,12 @@ export default async function Home() {
   const data = (await response.json()) as Connection[];
 
   return (
-    <div className="w-9/12 mx-auto">
-      <section className="w-full min-h-[calc(100vh-5rem)] flex justify-center items-center">
-        {data?.length > 0 ? (
-          <ul className="grid grid-cols-5 gap-5 row-auto">
+    <div className="min-w-[500px] max-w-[1000px] mx-auto">
+      {data?.length > 0 ? (
+        <section className="min-h-[calc(100vh-5rem)]">
+          <ul className="grid grid-cols-5 gap-5 row-auto py-10">
             {data.map(({ id, avatarId, nickname }) => (
-              <li key={id} className="flex justify-center items-center flex-col">
+              <li key={id} className="flex justify-center items-center flex-col hover:scale-105 transition-all">
                 <Link href={`/connect/${id}`}>
                   <Image
                     className="rounded-lg"
@@ -22,16 +22,19 @@ export default async function Home() {
                     height={180}
                     src={`${AVATAR_URL}?img=${avatarId}`}
                     alt="avatar"
+                    priority
                   />
                 </Link>
                 <div className="text-center">{nickname}</div>
               </li>
             ))}
           </ul>
-        ) : (
-          <h1 className="text-3xl uppercase text-center text-slate-300 pb-40">This will be your hyper connect!</h1>
-        )}
-      </section>
+        </section>
+      ) : (
+        <section className="min-h-[calc(100vh-5rem)] flex justify-center items-center">
+          <h1 className="text-3xl uppercase text-center text-slate-300 pb-60">This will be your hyper connect!</h1>
+        </section>
+      )}
     </div>
   );
 }

@@ -21,10 +21,10 @@ export async function POST(request: NextRequest) {
 
   try {
     const result = await db.run(
-      'INSERT INTO connections (nickname, email, avatarId) VALUES (?, ?, ?)',
+      'INSERT INTO connections (nickname, email, thumbnail) VALUES (?, ?, ?)',
       req.nickname,
       req.email,
-      req.avatarId
+      req.thumbnail
     );
     const inserted = await db.get<Connection>('SELECT * from connections WHERE id = ?', result.lastID);
     return NextResponse.json(inserted);

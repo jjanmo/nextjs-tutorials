@@ -1,4 +1,4 @@
-import { AVATAR_URL } from '@/constants/common';
+import { THUMBNAIL_URL } from '@/constants/common';
 import Image from 'next/image';
 import Link from 'next/link';
 import { read } from '@/helper/fetch';
@@ -13,15 +13,15 @@ export default async function Home() {
       {data?.length > 0 ? (
         <section className="min-h-[calc(100vh-5rem)]">
           <ul className="grid grid-cols-5 gap-5 row-auto  py-10">
-            {data.map(({ id, avatarId, nickname }) => (
+            {data.map(({ id, nickname, thumbnail }) => (
               <li key={id} className="flex justify-center items-center flex-col hover:scale-105 transition-all">
                 <Link href={`/connect/${id}`}>
                   <Image
                     className="rounded-lg"
                     width={180}
                     height={180}
-                    src={`${AVATAR_URL}?img=${avatarId}`}
-                    alt="avatar"
+                    src={`${THUMBNAIL_URL}?img=${thumbnail}`}
+                    alt="thumbnail"
                     priority
                   />
                 </Link>

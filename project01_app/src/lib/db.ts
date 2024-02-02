@@ -15,7 +15,7 @@ const setup = async () => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nickname TEXT,
       email TEXT,
-      avatarId INTEGER
+      thumbnail INTEGER
     )
   `);
 
@@ -24,7 +24,7 @@ const setup = async () => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nickname TEXT,
       email TEXT,
-      avatarId INTEGER
+      thumbnail INTEGER
     )
   `);
 

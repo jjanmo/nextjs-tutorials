@@ -9,14 +9,14 @@ interface Props {
 interface FormData {
   nickname: string;
   email: string;
-  avatarId: number;
+  thumbnail: number;
 }
 
 export default function Form({ title, onClose }: Props) {
   const [formData, setFormData] = useState<FormData>({
     nickname: '',
     email: '',
-    avatarId: 1,
+    thumbnail: 1,
   });
 
   const handleChange = (e: ChangeEvent) => {
@@ -55,7 +55,7 @@ export default function Form({ title, onClose }: Props) {
             max="70"
             placeholder="아바타 아이디(1~70)를 선택하세요"
             onChange={handleChange}
-            name="avatarId"
+            name="thumbnail"
           />
         </div>
 

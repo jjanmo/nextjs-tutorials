@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { read } from '@/helper/fetch';
 import { Connection } from '@/interface/connection';
-import { AVATAR_URL, dataKeyMap } from '@/constants/common';
+import { THUMBNAIL_URL, dataKeyMap } from '@/constants/common';
 
 interface Props {
   params: { id: string };
@@ -16,7 +16,7 @@ export default function ConnectDetailPage({ params }: Props) {
   const router = useRouter();
   const [data, setData] = useState<Connection | null>(null);
 
-  const isAvatar = (key: string) => key === 'avatarId';
+  const isThumbnail = (key: string) => key === 'thumbnail';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,13 +61,13 @@ export default function ConnectDetailPage({ params }: Props) {
                 {dataKeyMap[key]}
               </td>
               <td className="flex-3 flex justify-center items-center w-full py-4 bg-stone-100 rounded-md min-w-[300px]">
-                {isAvatar(key) ? (
+                {isThumbnail(key) ? (
                   <Image
                     className="rounded-lg"
                     width={180}
                     height={180}
-                    src={`${AVATAR_URL}?img=${value}`}
-                    alt="avatar"
+                    src={`${THUMBNAIL_URL}?img=${value}`}
+                    alt="thumbnail"
                     priority
                   />
                 ) : (

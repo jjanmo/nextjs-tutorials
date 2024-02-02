@@ -9,10 +9,10 @@ export default async function Home() {
   const data = (await response.json()) as Connection[];
 
   return (
-    <div className="min-w-[500px] max-w-[1000px] mx-auto">
+    <div className="min-w-[500px] max-w-[1000px] px-6 mx-auto">
       {data?.length > 0 ? (
         <section className="min-h-[calc(100vh-5rem)]">
-          <ul className="grid grid-cols-5 gap-5 row-auto py-10">
+          <ul className="grid grid-cols-5 gap-5 row-auto  py-10">
             {data.map(({ id, avatarId, nickname }) => (
               <li key={id} className="flex justify-center items-center flex-col hover:scale-105 transition-all">
                 <Link href={`/connect/${id}`}>

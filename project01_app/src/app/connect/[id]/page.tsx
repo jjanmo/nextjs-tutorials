@@ -1,17 +1,25 @@
+'use client';
+
 import { read } from '@/helper/fetch';
 import { Connection } from '@/interface/connection';
 import { AVATAR_URL, dataKeyMap } from '@/constants/common';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   params: { id: string };
 }
 
 export default async function ConnectDetailPage({ params }: Props) {
+  const router = useRouter();
   const response = await read({ url: `/api/connect/${params.id}` });
   const data = (await response.json()) as Connection;
 
   const isAvatar = (key: string) => key === 'avatarId';
+
+  const handleBackClick = () => {
+    router.back();
+  };
 
   return (
     <section className="h-dvh flex flex-col justify-center items-center">
@@ -38,12 +46,19 @@ export default async function ConnectDetailPage({ params }: Props) {
               </td>
             </tr>
           ))}
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
         </tbody>
       </table>
+      <div className="mt-6">
+        <button
+          className="w-32 py-2 mx-2 rounded-lg bg-red-400 text-white text-lg hover:opacity-90 transition-opacity"
+          onClick={handleBackClick}
+        >
+          Back
+        </button>
+        <button className="w-32 py-2 mx-2 rounded-lg bg-blue-400 text-white text-lg hover:opacity-90 transition-opacity">
+          Edit
+        </button>
+      </div>
     </section>
   );
 }

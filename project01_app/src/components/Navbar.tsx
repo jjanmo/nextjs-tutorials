@@ -9,9 +9,6 @@ export default function Navbar() {
         <div className="text-2xl text-white h-full flex items-center">
           <Link href="/">Random Connect</Link>
         </div>
-        <div className="text-2xl text-emerald-500 h-full flex items-center uppercase hover:opacity-80 transition-all">
-          <Link href="/add">Add</Link>
-        </div>
       </div>
     </div>
   );

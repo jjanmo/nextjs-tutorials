@@ -9,9 +9,9 @@ export default async function Home() {
   const data = (await response.json()) as Connection[];
 
   return (
-    <div className="min-w-[500px] max-w-[1000px] px-6 mx-auto">
-      {data?.length > 0 ? (
-        <section className="min-h-[calc(100vh-5rem)]">
+    <div className="flex flex-col min-w-[500px] max-w-[1000px] px-6 mx-auto">
+      <section className="min-h-[calc(100vh-5rem)]">
+        {data?.length > 0 ? (
           <ul className="grid grid-cols-5 gap-5 row-auto  py-10">
             {data.map(({ id, nickname, thumbnail }) => (
               <li key={id} className="flex justify-center items-center flex-col hover:scale-105 transition-all">
@@ -29,12 +29,13 @@ export default async function Home() {
               </li>
             ))}
           </ul>
-        </section>
-      ) : (
-        <section className="min-h-[calc(100vh-5rem)] flex justify-center items-center">
+        ) : (
           <h1 className="text-3xl uppercase text-center text-slate-300 pb-60">This will be your hyper connect!</h1>
-        </section>
-      )}
+        )}
+        <div className="w-fit text-2xl bg-emerald-500 py-2 px-4 rounded-md text-white h-full flex items-center uppercase hover:opacity-80 transition-all">
+          <Link href="/add">Add</Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-w-[500px] max-w-[1000px] px-6 mx-auto">
-      <section className="min-h-[calc(100vh-5rem)]">
+      <section className="min-h-[calc(100vh-5rem)] flex flex-col items-center">
         {data?.length > 0 ? (
           <ul className="grid grid-cols-5 gap-5 row-auto  py-10">
             {data.map(({ id, nickname, thumbnail }) => (
@@ -30,7 +30,7 @@ export default async function Home() {
             ))}
           </ul>
         ) : (
-          <h1 className="text-3xl uppercase text-center text-slate-300 pb-60">This will be your hyper connect!</h1>
+          <h1 className="text-3xl uppercase text-center text-slate-300 py-40">This will be your hyper connect!</h1>
         )}
         <div className="w-fit text-2xl bg-emerald-500 py-2 px-4 rounded-md text-white h-full flex items-center uppercase hover:opacity-80 transition-all">
           <Link href="/add">Add</Link>

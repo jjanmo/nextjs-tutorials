@@ -1,4 +1,5 @@
-import { create } from '@/helper/fetch';
+import { create, read } from '@/helper/fetch';
+import { useRouter } from 'next/router';
 import { ChangeEvent, useState } from 'react';
 
 interface Props {
@@ -27,6 +28,7 @@ export default function Form({ title, onClose }: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     create({ url: '/api/connect', data: formData });
+    onClose();
   };
 
   return (

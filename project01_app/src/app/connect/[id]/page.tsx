@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
-import { read } from '@/helper/fetch';
 import { Connection } from '@/interface/connection';
 import { THUMBNAIL_URL, dataKeyMap } from '@/constants/common';
+import { BASE_URL, requestOptions } from '@/constants/fetch';
 
 interface Props {
   params: { id: string };
@@ -20,7 +20,10 @@ export default function ConnectDetailPage({ params }: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await read({ url: `/api/connect/${params.id}` });
+      const response = await fetch(`${BASE_URL}/api/connect/${params.id}`, {
+        method: 'GET',
+        ...requestOptions,
+      });
       const data = (await response.json()) as Connection;
       setData(data);
     };

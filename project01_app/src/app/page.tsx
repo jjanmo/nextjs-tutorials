@@ -1,11 +1,14 @@
 import { THUMBNAIL_URL } from '@/constants/common';
 import Image from 'next/image';
 import Link from 'next/link';
-import { read } from '@/helper/fetch';
 import { Connection } from '@/interface/connection';
+import { BASE_URL, requestOptions } from '@/constants/fetch';
 
 export default async function Home() {
-  const response = await read({ url: '/api/connect' });
+  const response = await fetch(`${BASE_URL}/api/connect`, {
+    method: 'GET',
+    ...requestOptions,
+  });
   const data = (await response.json()) as Connection[];
 
   return (

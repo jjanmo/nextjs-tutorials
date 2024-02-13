@@ -1,5 +1,4 @@
-import { create, read } from '@/helper/fetch';
-import { useRouter } from 'next/router';
+import { BASE_URL, requestOptions } from '@/constants/fetch';
 import { ChangeEvent, useState } from 'react';
 
 interface Props {
@@ -27,8 +26,18 @@ export default function Form({ title, onClose }: Props) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    create({ url: '/api/connect', data: formData });
-    onClose();
+
+    try {
+      fetch(`${BASE_URL}/api/connect`, {
+        method: 'POST',
+        ...requestOptions,
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      console.error('error');
+    } finally {
+      onClose();
+    }
   };
 
   return (
@@ -42,6 +51,7 @@ export default function Form({ title, onClose }: Props) {
             placeholder="닉네임을 입력하세요"
             onChange={handleChange}
             name="nickname"
+            required
           />
           <input
             className="w-full border-2 border-gray-300 rounded-md mb-5 p-2"
@@ -49,6 +59,7 @@ export default function Form({ title, onClose }: Props) {
             placeholder="이메일을 입력하세요"
             onChange={handleChange}
             name="email"
+            required
           />
           <input
             className="w-full border-2 border-gray-300 rounded-md mb-5 p-2"
@@ -58,6 +69,7 @@ export default function Form({ title, onClose }: Props) {
             placeholder="아바타 아이디(1~70)를 선택하세요"
             onChange={handleChange}
             name="thumbnail"
+            required
           />
         </div>
 

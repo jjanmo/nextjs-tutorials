@@ -1,18 +1,12 @@
-'use client';
+import Form from '@/app/_components/Form';
+import Dim from '@/app/_components/Dim';
 
-import Form from '@/components/Form';
-import Modal from '@/components/Modal';
-import { useRouter } from 'next/navigation';
-
-export default function AddModalPage() {
-  const router = useRouter();
-  const handleClose = () => {
-    router.back();
-  };
-
+export default function AddPage() {
   return (
-    <Modal onClose={handleClose}>
-      <Form onClose={handleClose} title="Add Your Connection" />
-    </Modal>
+    <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center ">
+      <Dim />
+
+      <Form title="Add Your Connection" />
+    </div>
   );
 }

@@ -13,34 +13,22 @@ export interface FormState {
   thumbnail: number;
 }
 
-const initialState: FormState = {
-  nickname: '',
-  email: '',
-  thumbnail: 1,
-};
-
 export default function Form({ title }: Props) {
   const submit = async (formData: FormData) => {
     'use server';
-
-    const rawFormData = {
-      nickname: formData.get('nickname'),
-      email: formData.get('email'),
-      thumbnail: formData.get('thumbnail'),
-    };
 
     try {
       await fetch(`${BASE_URL}/api/connect`, {
         method: 'POST',
         ...requestOptions,
-        body: JSON.stringify(rawFormData),
+        body: JSON.stringify(formData),
       });
     } catch {
       console.error('error');
+    } finally {
+      revalidatePath('/');
+      redirect('/');
     }
-
-    revalidatePath('/');
-    redirect('/');
   };
 
   return (
@@ -52,7 +40,6 @@ export default function Form({ title }: Props) {
             className="w-full border-2 border-gray-300 rounded-md mb-5 p-2"
             type="text"
             placeholder="닉네임을 입력하세요"
-            // onChange={handleChange}
             name="nickname"
             required
           />
@@ -60,7 +47,6 @@ export default function Form({ title }: Props) {
             className="w-full border-2 border-gray-300 rounded-md mb-5 p-2"
             type="email"
             placeholder="이메일을 입력하세요"
-            // onChange={handleChange}
             name="email"
             required
           />
@@ -70,7 +56,6 @@ export default function Form({ title }: Props) {
             min="1"
             max="70"
             placeholder="아바타 아이디(1~70)를 선택하세요"
-            // onChange={handleChange}
             name="thumbnail"
             required
           />

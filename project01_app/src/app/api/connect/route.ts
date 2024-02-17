@@ -16,20 +16,20 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const req = await request.json();
+  const data = await request.json();
   const db = await openDb();
 
   try {
-    const result = await db.run(
+    await db.run(
       'INSERT INTO connections (nickname, email, thumbnail) VALUES (?, ?, ?)',
-      req.nickname,
-      req.email,
-      req.thumbnail
+      data.nickname,
+      data.email,
+      Number(data.thumbnail)
     );
-    const inserted = await db.get<Connection>('SELECT * from connections WHERE id = ?', result.lastID);
-    return NextResponse.json(inserted);
+    return NextResponse.json({ message: 'success', status: 201 });
   } catch {
     console.error('Error: POST /api/connect');
+    return NextResponse.json({ message: 'fail', status: 500 });
   } finally {
     await db.close();
   }

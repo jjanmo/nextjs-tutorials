@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
-import Navbar from '@/app/_components/Navbar';
+import Navbar from '@/app/connect/_components/Navbar';
 
 export const metadata: Metadata = {
   title: 'Random Connect',

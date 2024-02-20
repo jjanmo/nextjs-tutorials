@@ -1,5 +1,5 @@
-import Form from '@/app/_components/FormForAdd';
-import Dim from '@/app/_components/Dim';
+import Form from '@/app/connect/_components/FormForAdd';
+import Dim from '@/app/connect/_components/Dim';
 
 export default function AddPage() {
   return (

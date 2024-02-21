@@ -15,3 +15,16 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     await db.close();
   }
 }
+
+export async function PATCH(request: NextRequest) {
+  // const data = await request.json();
+  // const db = await openDb();
+  // try {
+  //   const result = await db.run('UPDATE connections  id = ?', id);
+  //   return NextResponse.json(result);
+  // } catch (e) {
+  //   console.error(`Error: GET /api/connect/${id}`);
+  // } finally {
+  //   await db.close();
+  // }
+}

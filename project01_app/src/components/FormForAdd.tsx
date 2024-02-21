@@ -5,7 +5,7 @@ interface Props {
   title: string;
 }
 
-export default function Form({ title }: Props) {
+export default function FormForAdd({ title }: Props) {
   return (
     <div className="flex flex-col w-1/4 justify-around items-center bg-white z-10 pt-2 pb-6 px-6 rounded-md">
       {title && <h1 className="my-4 text-xl">{title}</h1>}

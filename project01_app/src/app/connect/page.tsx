@@ -36,7 +36,7 @@ export default async function ConnectPage() {
           <h1 className="text-3xl uppercase text-center text-slate-300 py-40">This will be your hyper connect!</h1>
         )}
         <div className="w-fit text-2xl bg-emerald-500 py-2 px-4 rounded-md text-white h-full flex items-center uppercase hover:opacity-80 transition-all">
-          <Link href="/add">Add</Link>
+          <Link href="/connect/add">Add</Link>
         </div>
       </section>
     </div>

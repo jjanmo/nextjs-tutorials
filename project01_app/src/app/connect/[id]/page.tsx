@@ -38,7 +38,7 @@ export default function ConnectDetailPage({ params }: Props) {
   const handleDeletelick = () => {};
 
   const handleEditClick = () => {
-    router.push(`/edit?id=${params.id}`);
+    router.push(`/connect/edit?id=${params.id}`);
   };
 
   if (!data) return <div>Loading...</div>;

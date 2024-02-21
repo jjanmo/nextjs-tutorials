@@ -1,28 +1,15 @@
 import { PropsWithChildren } from 'react';
-import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
 import './globals.css';
-import Navbar from '@/app/connect/_components/Navbar';
 
-export const metadata: Metadata = {
-  title: 'Random Connect',
-  description: 'You can connect with someone now.',
-};
-
-interface RootProps {
-  modal: React.ReactNode;
-}
-
-export default function RootLayout({ children, modal }: PropsWithChildren<RootProps>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html>
       <body>
         <header>
           <Navbar />
         </header>
-        <main className="min-h-[calc(100vh-5rem)] w-full bg-slate-50">
-          {children}
-          {modal}
-        </main>
+        <main className="min-h-[calc(100vh-5rem)] w-full bg-slate-50">{children}</main>
       </body>
     </html>
   );

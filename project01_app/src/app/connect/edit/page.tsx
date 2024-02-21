@@ -1,5 +1,5 @@
-import Form from '@/app/connect/_components/FormForAdd';
-import Dim from '@/app/connect/_components/Dim';
+import Form from '@/components/FormForAdd';
+import Dim from '@/components/Dim';
 import { BASE_URL, requestOptions } from '@/constants/fetch';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';

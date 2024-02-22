@@ -35,7 +35,13 @@ export default function ConnectDetailPage({ params }: Props) {
     router.back();
   };
 
-  const handleDeletelick = () => {};
+  const handleDeletelick = () => {
+    const result = confirm('Are you sure you want to delete this connection?');
+
+    if (result) {
+      // 삭제 로직
+    }
+  };
 
   const handleEditClick = () => {
     router.push(`/connect/edit?id=${params.id}`);

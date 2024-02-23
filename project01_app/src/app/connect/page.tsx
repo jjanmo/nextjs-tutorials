@@ -1,4 +1,4 @@
-import { THUMBNAIL_URL } from '@/constants/common';
+import { BLUR_DATA_URL, THUMBNAIL_URL } from '@/constants/common';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Connection } from '@/interface/connection';
@@ -26,6 +26,8 @@ export default async function ConnectPage() {
                     src={`${THUMBNAIL_URL}?img=${thumbnail}`}
                     alt="thumbnail"
                     priority
+                    blurDataURL={BLUR_DATA_URL}
+                    placeholder="blur"
                   />
                 </Link>
                 <div className="text-center">{nickname}</div>

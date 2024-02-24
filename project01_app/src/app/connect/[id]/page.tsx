@@ -7,6 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Connection } from '@/interface/connection';
 import { THUMBNAIL_URL, dataKeyMap } from '@/constants/common';
 import { BASE_URL, requestOptions } from '@/constants/fetch';
+import { revalidatePath } from 'next/cache';
 
 interface Props {
   params: { id: string };
@@ -35,11 +36,15 @@ export default function ConnectDetailPage({ params }: Props) {
     router.back();
   };
 
-  const handleDeletelick = () => {
+  const handleDeleteClick = async () => {
     const result = confirm('Are you sure you want to delete this connection?');
 
     if (result) {
-      // 삭제 로직
+      await fetch(`${BASE_URL}/api/connect/${params.id}`, {
+        method: 'DELETE',
+        ...requestOptions,
+      });
+      router.push('/connect');
     }
   };
 
@@ -96,7 +101,7 @@ export default function ConnectDetailPage({ params }: Props) {
         </button>
         <button
           className="w-32 py-2 mx-1 rounded-lg bg-red-400 text-white text-lg hover:opacity-90 transition-opacity"
-          onClick={handleDeletelick}
+          onClick={handleDeleteClick}
         >
           Delete
         </button>

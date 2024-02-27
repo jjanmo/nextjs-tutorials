@@ -13,6 +13,18 @@ export async function getConnectData() {
   return data;
 }
 
+export async function getConnectDetailData(id: string) {
+  const response = await fetch(`${BASE_URL}/api/connect/${id}`, {
+    method: 'GET',
+    ...requestOptions,
+  });
+
+  if (!response.ok) throw new Error(`Failed to fetch [/connect/${id}]`);
+
+  const data = (await response.json()) as Connection;
+  return data;
+}
+
 export async function deleteConnectData(id: string) {
   const response = await fetch(`${BASE_URL}/api/connect/${id}`, {
     method: 'DELETE',

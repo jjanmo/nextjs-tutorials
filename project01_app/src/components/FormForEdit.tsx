@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import ModalButtons from './ModalButtons';
-import { Connection, FormValues } from '@/interface/connection';
+import { Connection, FormValues } from '@/interface/connect';
 import { usePathname } from 'next/navigation';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   action: (formData: FormData) => void;
 }
 
-export default function Form({ title, action, data }: Props) {
+export default function FormForEdit({ title, action, data }: Props) {
   const pathname = usePathname();
   const [values, setValues] = useState<FormValues>(data || {});
 

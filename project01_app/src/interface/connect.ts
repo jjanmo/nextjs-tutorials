@@ -4,3 +4,5 @@ export interface Connection {
   email: string;
   thumbnail: number;
 }
+
+export type FormValues = Partial<Omit<Connection, 'id'>>;

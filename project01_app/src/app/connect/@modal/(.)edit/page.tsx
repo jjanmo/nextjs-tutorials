@@ -3,7 +3,7 @@ import Dim from '@/components/Dim';
 import { redirect } from 'next/navigation';
 import { BASE_URL, requestOptions } from '@/constants/fetch';
 import { revalidatePath } from 'next/cache';
-import { Connection } from '@/interface/connection';
+import { Connection } from '@/interface/connect';
 
 export default async function EditPage({ searchParams }: { searchParams: { id: string } }) {
   const response = await fetch(`${BASE_URL}/api/connect/${searchParams.id}`, requestOptions);

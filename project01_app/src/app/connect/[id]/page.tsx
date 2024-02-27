@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
-import { Connection } from '@/interface/connection';
+import { Connection } from '@/interface/connect';
 import { THUMBNAIL_URL, dataKeyMap } from '@/constants/common';
 import { BASE_URL, requestOptions } from '@/constants/fetch';
-import { revalidatePath } from 'next/cache';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deleteConnectData } from '@/apis/connect';
 
 interface Props {
   params: { id: string };
@@ -16,6 +17,16 @@ interface Props {
 export default function ConnectDetailPage({ params }: Props) {
   const router = useRouter();
   const [data, setData] = useState<Connection | null>(null);
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationKey: ['connect', 'delete', params.id],
+    mutationFn: () => deleteConnectData(params.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['connect'] });
+      router.push('/connect');
+    },
+  });
 
   const isThumbnail = (key: string) => key === 'thumbnail';
 
@@ -40,11 +51,7 @@ export default function ConnectDetailPage({ params }: Props) {
     const result = confirm('Are you sure you want to delete this connection?');
 
     if (result) {
-      await fetch(`${BASE_URL}/api/connect/${params.id}`, {
-        method: 'DELETE',
-        ...requestOptions,
-      });
-      router.push('/connect');
+      mutate();
     }
   };
 

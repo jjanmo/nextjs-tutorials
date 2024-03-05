@@ -1,10 +1,17 @@
-import { BASE_URL, requestOptions } from '@/constants/fetch';
 import { Connection } from '@/interface/connect';
+
+export const BASE_URL = 'http://localhost:3000';
+
+export const options = {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
 
 export async function getConnectData() {
   const response = await fetch(`${BASE_URL}/api/connect`, {
     method: 'GET',
-    ...requestOptions,
+    ...options,
   });
 
   if (!response.ok) throw new Error(`Failed to fetch [/connect]`);
@@ -16,7 +23,7 @@ export async function getConnectData() {
 export async function getConnectDetailData(id: string) {
   const response = await fetch(`${BASE_URL}/api/connect/${id}`, {
     method: 'GET',
-    ...requestOptions,
+    ...options,
   });
 
   if (!response.ok) throw new Error(`Failed to fetch [/connect/${id}]`);
@@ -28,7 +35,7 @@ export async function getConnectDetailData(id: string) {
 export async function deleteConnectData(id: string) {
   const response = await fetch(`${BASE_URL}/api/connect/${id}`, {
     method: 'DELETE',
-    ...requestOptions,
+    ...options,
   });
 
   if (!response.ok) throw new Error(`Failed to delete [/connect${id}]`);

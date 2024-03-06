@@ -1,22 +1,18 @@
 'use server';
 
-import { BASE_URL, requestOptions } from '@/constants/fetch';
+import { postConnectData } from '@/apis/connect';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export const submitForAdd = async (formData: FormData) => {
+export const submitForAdd = async (data: FormData) => {
   const body = {
-    nickname: formData.get('nickname'),
-    email: formData.get('email'),
-    thumbnail: Number(formData.get('thumbnail')),
+    nickname: data.get('nickname'),
+    email: data.get('email'),
+    thumbnail: data.get('thumbnail'),
   };
 
   try {
-    await fetch(`${BASE_URL}/api/connect`, {
-      method: 'POST',
-      ...requestOptions,
-      body: JSON.stringify(body),
-    });
+    await postConnectData(body);
   } catch {
     console.error('error');
   } finally {

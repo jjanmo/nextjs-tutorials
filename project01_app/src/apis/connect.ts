@@ -32,6 +32,25 @@ export async function getConnectDetailData(id: string) {
   return data;
 }
 
+interface Body {
+  nickname: FormDataEntryValue | null;
+  email: FormDataEntryValue | null;
+  thumbnail: FormDataEntryValue | null;
+}
+
+export async function postConnectData(body: Body) {
+  const response = await fetch(`${BASE_URL}/api/connect`, {
+    method: 'POST',
+    ...options,
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) throw new Error(`Failed to post [/connect]`);
+
+  const data = (await response.json()) as Connection;
+  return data;
+}
+
 export async function deleteConnectData(id: string) {
   const response = await fetch(`${BASE_URL}/api/connect/${id}`, {
     method: 'DELETE',

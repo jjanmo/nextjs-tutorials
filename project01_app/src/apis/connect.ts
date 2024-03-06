@@ -32,13 +32,12 @@ export async function getConnectDetailData(id: string) {
   return data;
 }
 
-interface Body {
+interface PostConnectDataPayload {
   nickname: FormDataEntryValue | null;
   email: FormDataEntryValue | null;
   thumbnail: FormDataEntryValue | null;
 }
-
-export async function postConnectData(body: Body) {
+export async function postConnectData(body: PostConnectDataPayload) {
   const response = await fetch(`${BASE_URL}/api/connect`, {
     method: 'POST',
     ...options,

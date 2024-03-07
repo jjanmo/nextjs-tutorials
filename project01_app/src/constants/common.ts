@@ -8,3 +8,5 @@ export const dataKeyMap: { [key: string]: string } = {
   thumbnail: '썸네일',
   email: '이메일',
 };
+
+export const TMDB_MOVIE_IMAGE_URL = 'https://image.tmdb.org/t/p';

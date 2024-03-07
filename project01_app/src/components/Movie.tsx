@@ -1,15 +1,27 @@
 'use client';
 
-import { Movie as MovieType } from '@/interface/movie';
+import { isMovie } from '@/app/movies/page';
+import { TMDB_MOVIE_IMAGE_URL } from '@/constants/common';
+import { Media } from '@/interface/movie';
 import Link from 'next/link';
+import Badge from './Badge';
+import Bookmark from './Bookmark';
 
-export default function Movie(props: MovieType) {
-  const { title, backdrop_path, id } = props;
-  console.log(title, backdrop_path);
+export default function Movie(props: Media) {
+  const { id, poster_path } = props;
+
+  const badgeText = isMovie(props) ? 'MOVIE' : 'TV';
+
   return (
-    <li className="w-full h-full">
+    <li className="relative rounded-md shadow-md overflow-hidden">
       <Link href={`/movies/${id}`}>
-        <h1>{title}</h1>
+        <Bookmark />
+        <div className="absolute top-0 left-0 w-full h-full bg-[#00000033]" />
+        <div
+          style={{ '--bg-image': `url(${TMDB_MOVIE_IMAGE_URL}/original/${poster_path})` } as React.CSSProperties}
+          className="bg-[image:var(--bg-image)] bg-cover bg-center w-full pt-[150%] object-contain "
+        ></div>
+        <Badge text={badgeText} />
       </Link>
     </li>
   );

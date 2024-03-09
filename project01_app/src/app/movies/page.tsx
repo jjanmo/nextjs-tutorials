@@ -9,9 +9,11 @@ export default async function MoviesPage() {
   );
   popularData.sort((a, b) => b.popularity - a.popularity);
 
+  console.log(popularData.length);
+
   return (
-    <div className="min-h-[calc(100vh-5rem)] flex flex-col items-center px-64 py-10">
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-4 w-full">
+    <div className="min-h-[calc(100vh-5rem)] flex flex-col items-center px-[10%] py-10">
+      <ul className="w-full grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-6">
         {popularData && popularData.map((movie) => <Movie key={movie.id} {...movie} />)}
       </ul>
     </div>

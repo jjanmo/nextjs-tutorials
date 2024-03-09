@@ -13,7 +13,7 @@ export default function Movie(props: Media) {
   const badgeText = isMovie(props) ? 'MOVIE' : 'TV';
 
   return (
-    <li className="relative rounded-md shadow-md overflow-hidden">
+    <li className="relative rounded-md shadow-md overflow-hidden hover:scale-105 transition-all duration-500">
       <Link href={`/movies/${id}`}>
         <Bookmark />
         <div className="absolute top-0 left-0 w-full h-full bg-[#00000033]" />

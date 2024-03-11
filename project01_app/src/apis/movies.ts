@@ -1,10 +1,11 @@
 import {
   Movie,
   MovieDetailResponse,
+  MovieVideosResponse,
   PopularMoviesResponse,
   PopularTVsResponse,
-  TVDetailResponse,
 } from '@/interface/movie';
+import { TVDetailResponse } from '@/interface/tv';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -69,5 +70,22 @@ export async function getTVDetail({ id, language = 'ko-KR' }: GetDetailPayload) 
   if (!response.ok) throw new Error(`Failed to fetch [/tv/${id}]`);
 
   const data = (await response.json()) as TVDetailResponse;
+  return data;
+}
+
+interface GetMovieVideosPayload {
+  id: number;
+  language?: string;
+}
+
+export async function getMovieVideos({ id, language = 'ko-KR' }: GetMovieVideosPayload) {
+  const response = await fetch(`${BASE_URL}/movie/${id}/videos?language=${language}`, {
+    method: 'GET',
+    ...options,
+  });
+
+  if (!response.ok) throw new Error(`Failed to fetch [/movie/${id}/videos]`);
+
+  const data = (await response.json()) as MovieVideosResponse;
   return data;
 }

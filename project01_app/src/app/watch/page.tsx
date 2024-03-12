@@ -1,11 +1,13 @@
 import React from 'react';
 import { getPopularMovies, getPopularTVs } from '@/apis/movies';
-import Movie from '@/components/Movie';
+import Movie from '@/components/watch/Movie';
 import { Media, Movie as MovieType } from '@/interface/movie';
 
-export default async function MoviesPage() {
-  const popularData = await Promise.all([getPopularMovies({}), getPopularTVs({})]).then((result) =>
-    result.map((data) => data.results).flat()
+export default async function WatchPage() {
+  const popularData = await Promise.all([getPopularMovies({})]).then(
+    (
+      result // getPopularTVs({}) 나중에 넣기
+    ) => result.map((data) => data.results).flat()
   );
   popularData.sort((a, b) => b.popularity - a.popularity);
 

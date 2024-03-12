@@ -1,3 +1,3 @@
 export default async function HomePage() {
-  return <div className="flex flex-col min-w-[500px] max-w-[1000px] px-6 mx-auto"></div>;
+  return <div className="flex flex-col min-w-[500px] max-w-[1000px] px-6 mx-auto">홈페이지!</div>;
 }

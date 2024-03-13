@@ -1,13 +1,11 @@
-interface Props {
-  size?: 4 | 6 | 8 | 10;
-}
+'use client';
 
-export default function Loader({ size = 10 }: Props) {
+export default function Loader() {
   return (
     <div role="status">
       <svg
         aria-hidden="true"
-        className={`w-${size} h-${size} text-gray-200 animate-spin dark:text-gray-600 fill-teal-500`}
+        className="w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-teal-500 "
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

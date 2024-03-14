@@ -25,8 +25,8 @@ export default function Movie(props: Media & { isMovie: boolean }) {
           blurDataURL={BLUR_DATA_URL}
           placeholder="blur"
           alt="movie poster"
-          // sizes="(max-width: 732px) 90vw, (max-width: 992px) 45vw, 320px"
           priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <Badge text={badgeText} />
         <div className="absolute top-0 left-0 w-full h-full bg-[#00000033] z-10" />

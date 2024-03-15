@@ -15,7 +15,7 @@ interface GetTVPopularPayload {
   page?: number;
 }
 export async function getPopularTVs({ language = 'ko-KR', page = 1 }: GetTVPopularPayload) {
-  const response = await fetch(`${TV_BASE_URL}/tv/popular?language=${language}&page=${page}`, {
+  const response = await fetch(`${TV_BASE_URL}/popular?language=${language}&page=${page}`, {
     method: 'GET',
     ...options,
   });

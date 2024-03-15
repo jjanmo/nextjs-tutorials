@@ -1,4 +1,4 @@
-import { getMovieDetail } from '@/apis/movies';
+import { getMovieDetail } from '@/apis/movie';
 
 interface Props {
   id: string;

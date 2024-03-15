@@ -1,5 +1,4 @@
-import { getMovieVideos } from '@/apis/movies';
-import { Suspense } from 'react';
+import { getMovieVideos } from '@/apis/movie';
 
 interface Props {
   params: {
@@ -10,5 +9,5 @@ interface Props {
 export default async function MovieVideos({ params }: Props) {
   const data = await getMovieVideos({ id: Number(params.id) });
 
-  return <div>{JSON.stringify(data)}</div>;
+  return <div>{data.id}</div>;
 }

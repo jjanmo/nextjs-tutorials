@@ -1,4 +1,4 @@
-import { MovieDetailResponse, MovieVideosResponse, PopularMoviesResponse } from '@/interface/movie';
+import { MovieDetailResponse, PopularMoviesResponse } from '@/interface/movie';
 
 const MOVIE_BASE_URL = 'https://api.themoviedb.org/3/movie';
 
@@ -13,7 +13,7 @@ interface GetMoviePopularPayload {
   language?: string;
   page?: number;
 }
-export async function getPopularMovies({ language = 'ko-KR', page = 1 }: GetMoviePopularPayload) {
+export async function getPopularMovies({ language = 'en-US', page = 1 }: GetMoviePopularPayload) {
   const response = await fetch(`${MOVIE_BASE_URL}/popular?language=${language}&page=${page}`, {
     method: 'GET',
     ...options,
@@ -29,8 +29,8 @@ interface GetMovieDetailPayload {
   id: number;
   language?: string;
 }
-export async function getMovieDetail({ id, language = 'ko-KR' }: GetMovieDetailPayload) {
-  const response = await fetch(`${MOVIE_BASE_URL}/${id}?language=${language}`, {
+export async function getMovieDetail({ id, language = 'en-US' }: GetMovieDetailPayload) {
+  const response = await fetch(`${MOVIE_BASE_URL}/${id}?language=${language}&append_to_response=videos,images`, {
     method: 'GET',
     ...options,
   });
@@ -38,21 +38,5 @@ export async function getMovieDetail({ id, language = 'ko-KR' }: GetMovieDetailP
   if (!response.ok) throw new Error(`Failed to fetch [/movie/${id}]`);
 
   const data = (await response.json()) as MovieDetailResponse;
-  return data;
-}
-
-interface GetMovieVideosPayload {
-  id: number;
-  language?: string;
-}
-export async function getMovieVideos({ id, language = 'ko-KR' }: GetMovieVideosPayload) {
-  const response = await fetch(`${MOVIE_BASE_URL}/${id}/videos?language=${language}`, {
-    method: 'GET',
-    ...options,
-  });
-
-  if (!response.ok) throw new Error(`Failed to fetch [/movie/${id}/videos]`);
-
-  const data = (await response.json()) as MovieVideosResponse;
   return data;
 }

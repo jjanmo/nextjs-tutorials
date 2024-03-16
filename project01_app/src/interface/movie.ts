@@ -30,12 +30,6 @@ export interface PopularMoviesResponse {
   total_pages: number;
   total_results: number;
 }
-export interface PopularTVsResponse {
-  page: number;
-  results: Omit<TV, 'type'>[];
-  total_pages: number;
-  total_results: number;
-}
 
 export interface MovieDetailResponse {
   adult: boolean;
@@ -68,6 +62,14 @@ export interface MovieDetailResponse {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  videos?: {
+    results: MovieVideo[];
+  };
+  images?: {
+    backdrops: MovieImage[];
+    logos: MovieImage[];
+    posters: MovieImage[];
+  };
 }
 
 export interface MovieVideo {
@@ -82,7 +84,13 @@ export interface MovieVideo {
   published_at: string;
   id: string;
 }
-export interface MovieVideosResponse {
-  id: number;
-  results: MovieVideo[];
+
+export interface MovieImage {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: null;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
 }

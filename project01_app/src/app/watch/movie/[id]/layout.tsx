@@ -6,14 +6,17 @@ interface Props {
   videos: React.ReactNode;
 }
 
-export default function MovieDetailPageLayout({ info, videos }: PropsWithChildren<Props>) {
+export default function MovieDetailPageLayout({ children, info, videos }: PropsWithChildren<Props>) {
   return (
-    <div className="w-full flex">
-      <div className="w-1/2 min-h-[calc(100vh-5rem)]">
-        <Suspense fallback={<Loader />}>{info}</Suspense>
-      </div>
-      <div className="w-1/2 min-h-[calc(100vh-5rem)]">
-        <Suspense fallback={<Loader />}>{videos}</Suspense>
+    <div className="flex flex-col min-w-min max-w-7xl px-6 mx-auto">
+      {children}
+      <div className="flex">
+        <div className="w-1/2 bg-slate-300">
+          <Suspense fallback={<Loader />}>{info}</Suspense>
+        </div>
+        <div className="w-1/2 bg-blue-300">
+          <Suspense fallback={<Loader />}>{videos}</Suspense>
+        </div>
       </div>
     </div>
   );

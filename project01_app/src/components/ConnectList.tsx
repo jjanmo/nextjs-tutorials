@@ -13,7 +13,7 @@ export default function ConnectList() {
   });
 
   return (
-    <section className="min-h-[calc(100vh-5rem)] flex flex-col items-center">
+    <section className="min-h-[calc(100vh-4rem)] flex flex-col items-center">
       {data && data.length > 0 ? (
         <ul className="grid grid-cols-5 gap-5 row-auto  py-10">
           {data.map(({ id, nickname, thumbnail }) => (

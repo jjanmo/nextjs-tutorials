@@ -15,7 +15,7 @@ export default async function WatchPage() {
   };
 
   return (
-    <div className="h-full flex flex-col items-center py-10">
+    <div className="h-full flex flex-col items-center py-10 bg-emerald-50">
       <ul
         className="grid 
           grid-cols-[repeat(4,minmax(100px,1fr))]

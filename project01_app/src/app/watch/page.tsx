@@ -19,8 +19,8 @@ export default async function WatchPage() {
       <ul
         className="grid 
           grid-cols-[repeat(4,minmax(100px,1fr))]
-          sm:grid-cols-[repeat(5,minmax(120px,1fr))] 
-          md:grid-cols-[repeat(5,minmax(160px,1fr))] 
+          sm:grid-cols-[repeat(5,minmax(100px,1fr))] 
+          md:grid-cols-[repeat(5,minmax(140px,1fr))] 
           xl:grid-cols-[repeat(8,minmax(140px,1fr))]  
           gap-6"
       >

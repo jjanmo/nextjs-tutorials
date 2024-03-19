@@ -49,20 +49,3 @@ export default function VideoTrailer({ officialTrailer, backdropPath, title }: P
     </div>
   );
 }
-
-{
-  /* <div className="w-full h-[360px]">
-{officialTrailer && (
-  <div className="relative max-w-[1120px] h-full">
-    <iframe
-      className="absolute top-0 left-0 w-full h-full mx-auto"
-      src={`https://www.youtube.com/embed/${officialTrailer.key}`}
-      title={officialTrailer.name}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-      frameBorder="0"
-    />
-  </div>
-)}
-</div> */
-}

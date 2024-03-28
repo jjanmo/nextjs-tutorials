@@ -67,13 +67,18 @@ const CalendarHeaderCell = styled.div`
 
 const CalendarBody = styled(CalendarGridContainer)`
   height: var(--calendar-height);
-  border: 0.5px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+
+  & > div {
+    border-bottom: 1px solid #f2f2f2;
+    border-right: 1px solid #f2f2f2;
+  }
 `;
 const CalendarBodyCell = styled.div<{ type: CellRenderingType }>`
   display: flex;
   justify-content: center;
   padding: 8px 5px;
-  border: 0.5px solid #f2f2f2;
   color: ${({ type }) => (type === 'current' ? '#323232' : '#e1e1e1')};
   font-size: 14px;
 `;

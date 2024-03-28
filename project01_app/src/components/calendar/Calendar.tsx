@@ -3,7 +3,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import styled from 'styled-components';
 import { generateCalendarData, generateCalendarRenderingData } from '@/utils/calendar';
-import { CalendarData, CalendarRenderingCellData, CellRenderingType } from '@/interface/calendar';
+import { CalendarRenderingCellData, CellRenderingType } from '@/interface/calendar';
 import { Days } from '@/constants/calendar';
 import CalendarNavigator from './CalendarNavigator';
 import { useEffect, useState } from 'react';
@@ -22,9 +22,7 @@ export default function Calendar() {
     setTargetDate((prev) => prev[action](1, 'month'));
   };
 
-  // useReducer 사용하면 어떨까??
-
-  // const  = generateCalendarRenderingData(calendarData);
+  if (!renderingData) return null;
 
   return (
     <Container>
@@ -35,9 +33,9 @@ export default function Calendar() {
           <CalendarHeaderCell key={day}>{day}</CalendarHeaderCell>
         ))}
       </CalendarHeader>
-      <CalendarBody>
-        {renderingData?.map(({ date, day, type }) => (
-          <CalendarBodyCell key={`${date}-${day}`} type={type}>
+      <CalendarBody $totalrows={renderingData.length / 7}>
+        {renderingData.map(({ date, type }, index) => (
+          <CalendarBodyCell key={index} type={type}>
             {date}
           </CalendarBodyCell>
         ))}
@@ -47,19 +45,19 @@ export default function Calendar() {
 }
 
 const Container = styled.div`
-  margin: 40px 0;
+  margin: 20px 0;
 `;
 
 const CalendarGridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(7, minmax(100px, 130px));
-  min-width: calc(100px * 7);
-  max-width: calc(130px * 7);
+  grid-template-columns: repeat(7, 1fr);
 `;
 const CalendarHeader = styled(CalendarGridContainer)`
   margin: 10px 0;
 `;
-const CalendarBody = styled(CalendarGridContainer)`
+const CalendarBody = styled(CalendarGridContainer)<{ $totalrows: number }>`
+  grid-template-rows: repeat(totalrows, calc(var(--calendar-height) / totalrows));
+  height: var(--calendar-height);
   border: 0.5px solid #f2f2f2;
 `;
 const CalendarHeaderCell = styled.div`
@@ -79,5 +77,4 @@ const CalendarBodyCell = styled.div<{ type: CellRenderingType }>`
   border: 0.5px solid #f2f2f2;
   color: ${({ type }) => (type === 'current' ? '#323232' : '#e1e1e1')};
   font-size: 14px;
-  aspect-ratio: 1 / 1;
 `;

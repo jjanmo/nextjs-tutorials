@@ -1,20 +1,29 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styled from 'styled-components';
 
 interface Props {
   year: number;
   month: number;
+  updateTargetDate: (action: 'subtract' | 'add') => void;
 }
 
-export default function CalendarNavigator({ year, month }: Props) {
+export default function CalendarNavigator({ year, month, updateTargetDate }: Props) {
+  const handleClickPrev = () => {
+    updateTargetDate('subtract');
+  };
+
+  const handleClickNext = () => {
+    updateTargetDate('add');
+  };
+
   return (
     <CanlendarNavigator>
-      <button>
+      <button onClick={handleClickPrev}>
         <ChevronLeft color="#666565" strokeWidth={1.5} size={28} />
       </button>
       <CurrentDate>{dayjs(`${year}-${month + 1}`).format('YYYY년 MM월')}</CurrentDate>
-      <button>
+      <button onClick={handleClickNext}>
         <ChevronRight color="#666565" strokeWidth={1.5} size={28} />
       </button>
     </CanlendarNavigator>

@@ -1,34 +1,34 @@
 'use client';
 
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import styled from 'styled-components';
-import { generateCalendarRenderingData } from '@/utils/calendar';
-import { CellRenderingType, DateBase } from '@/interface/calendar';
+import { generateCalendarData, generateCalendarRenderingData } from '@/utils/calendar';
+import { CalendarData, CalendarRenderingCellData, CellRenderingType } from '@/interface/calendar';
 import { Days } from '@/constants/calendar';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import CalendarNavigator from './CalendarNavigator';
+import { useEffect, useState } from 'react';
 
 export default function Calendar() {
-  const now = dayjs();
+  const [targetDate, setTargetDate] = useState<Dayjs>(dayjs());
+  const [renderingData, setRenderingData] = useState<CalendarRenderingCellData[] | null>(null);
 
-  const nowData: DateBase = {
-    year: now.year(),
-    month: now.month(),
-    date: now.date(),
+  useEffect(() => {
+    const data = generateCalendarData(targetDate);
+    const renderingData = generateCalendarRenderingData(data);
+    setRenderingData(renderingData);
+  }, [targetDate]);
+
+  const updateTargetDate = (action: 'subtract' | 'add') => {
+    setTargetDate((prev) => prev[action](1, 'month'));
   };
 
-  const currentMonthData = {
-    ...nowData,
-    startOfDay: now.startOf('month').day(),
-    endOfDay: now.endOf('month').day(),
-    totalDays: now.endOf('month').date(),
-  };
+  // useReducer 사용하면 어떨까??
 
-  const calendarData = generateCalendarRenderingData(currentMonthData);
+  // const  = generateCalendarRenderingData(calendarData);
 
   return (
     <Container>
-      <CalendarNavigator year={now.year()} month={now.month()} />
+      <CalendarNavigator year={targetDate.year()} month={targetDate.month()} updateTargetDate={updateTargetDate} />
 
       <CalendarHeader>
         {Days.map((day) => (
@@ -36,7 +36,7 @@ export default function Calendar() {
         ))}
       </CalendarHeader>
       <CalendarBody>
-        {calendarData.map(({ date, day, type }) => (
+        {renderingData?.map(({ date, day, type }) => (
           <CalendarBodyCell key={`${date}-${day}`} type={type}>
             {date}
           </CalendarBodyCell>

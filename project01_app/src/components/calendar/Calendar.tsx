@@ -33,7 +33,7 @@ export default function Calendar() {
           <CalendarHeaderCell key={day}>{day}</CalendarHeaderCell>
         ))}
       </CalendarHeader>
-      <CalendarBody $totalrows={renderingData.length / 7}>
+      <CalendarBody>
         {renderingData.map(({ date, type }, index) => (
           <CalendarBodyCell key={index} type={type}>
             {date}
@@ -51,29 +51,28 @@ const Container = styled.div`
 const CalendarGridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  min-width: fit-content;
 `;
+
 const CalendarHeader = styled(CalendarGridContainer)`
   margin: 10px 0;
-`;
-const CalendarBody = styled(CalendarGridContainer)<{ $totalrows: number }>`
-  grid-template-rows: repeat(totalrows, calc(var(--calendar-height) / totalrows));
-  height: var(--calendar-height);
-  border: 0.5px solid #f2f2f2;
 `;
 const CalendarHeaderCell = styled.div`
   display: flex;
   justify-content: center;
-  min-width: 100px;
   padding: 10px;
   font-size: 14px;
   font-weight: 600;
 `;
+
+const CalendarBody = styled(CalendarGridContainer)`
+  height: var(--calendar-height);
+  border: 0.5px solid #f2f2f2;
+`;
 const CalendarBodyCell = styled.div<{ type: CellRenderingType }>`
   display: flex;
   justify-content: center;
-  min-width: 100px;
-  min-height: 100px;
-  padding: 10px;
+  padding: 8px 5px;
   border: 0.5px solid #f2f2f2;
   color: ${({ type }) => (type === 'current' ? '#323232' : '#e1e1e1')};
   font-size: 14px;

@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styled from 'styled-components';
 

@@ -1,5 +1,16 @@
 import { CalendarData, CalendarRenderingCellData } from '@/interface/calendar';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+
+export const generateCalendarData = (target: Dayjs) => {
+  return {
+    year: target.year(),
+    month: target.month(),
+    date: target.date(),
+    startOfDay: target.startOf('month').day(),
+    endOfDay: target.endOf('month').day(),
+    totalDays: target.endOf('month').date(),
+  };
+};
 
 export const generateCalendarRenderingData = (data: CalendarData) => {
   const { startOfDay, endOfDay, totalDays, year, month } = data;

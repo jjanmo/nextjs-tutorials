@@ -4,12 +4,23 @@
 
 ## Project01_app [-ing]
 
-- Next.js 13버전의 `App Router`를 이용하여 간단한 CRUD 앱을 만들어보자.
+- Next.js `App Router`를 이용한 여러가지 기능을 가진 복합앱
 
-  > feat. [생활코딩](https://opentutorials.org/course/5098)
+  <details>
+    <summary>Features</summary>
 
-## Project02 [done at 2022]
+  > [자세한내용](https://github.com/jjanmo/nextjs-tutorials/discussions/1)
 
-- Just simple Movie App with infinite Scroll
+  - [ ] 회원가입 / 로그인 / 로그아웃
+  - [ ] 캘린더 일정 CRUD 기능
+  - [ ] 연락처 등록 CRUD 기능
+  - [ ] 영화/TV 리스트 및 상세페이지
+  - [ ] 중요일정 및 좋아요 아이템을 노출하는 나의 페이지
 
-  > Start Next.js with [NomadCoders](https://nomadcoders.co/nextjs-fundamentals) 🚀
+  </details>
+
+## Project02 [done]
+
+- Simple Movie App with **Infinite Scroll** made with **Next.js(v12)**
+
+  > ref: Next12 in [NomadCoders](https://nomadcoders.co/nextjs-fundamentals)

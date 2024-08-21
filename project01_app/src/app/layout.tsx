@@ -2,7 +2,7 @@ import ReactQueryProviders from '@/hooks/useReactQuery';
 import { PropsWithChildren } from 'react';
 import Navbar from '@/components/common/Navbar';
 import './globals.css';
-import StyledComponentsRegistry from '@/lib/registry';
+import StyledComponentsRegistry from '@/libs/registry';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

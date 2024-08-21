@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import ModalButtons from './ModalButtons';
-import { Connection, FormValues } from '@/interface/connect';
+import { FormValues } from '@/interface/connect';
 import { usePathname } from 'next/navigation';
 
 interface Props {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { openDb } from '@/lib/db';
+import { openDb } from '@/libs/db';
 import { Connection } from '@/interface/connect';
 
 export async function GET() {

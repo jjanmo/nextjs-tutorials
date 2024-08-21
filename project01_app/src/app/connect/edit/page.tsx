@@ -1,6 +1,6 @@
 import Form from '@/components/FormForAdd';
 import Dim from '@/components/Dim';
-import { BASE_URL, requestOptions } from '@/constants/fetch';
+import { BASE_URL, requestOptions } from '@/constants/common';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 
@@ -26,7 +26,7 @@ export default function EditPage() {
     <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center ">
       <Dim />
 
-      <Form title="Edit Your Connection " action={submit} />
+      <Form title="Edit Your Connection " />
     </div>
   );
 }

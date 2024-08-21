@@ -31,13 +31,13 @@ export default function Home() {
       <SEO title="Home" />
       <div className="container">
         {movies && movies.length > 0 && movies.map((movie, index) => <Movie key={movie.id} {...movie} />)}
-        {isLoading && (
-          <div className="loader">
-            <Loader />
-          </div>
-        )}
-        {error && <h1>Error!!</h1>}
       </div>
+      {!isLoading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
+      {error && <h1>Error!!</h1>}
       <div ref={lastElement}></div>
       <style jsx>
         {`
@@ -53,9 +53,10 @@ export default function Home() {
             justify-content: center;
           }
           .loader {
-            width: 100%;
-            text-align: center;
             margin: 10px 0;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
           }
         `}
       </style>

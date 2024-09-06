@@ -4,6 +4,9 @@ import '@/styles/globals.css';
 export const metadata: Metadata = {
   title: 'SupaNext',
   description: 'Next.js with Supabase',
+  icons: {
+    icon: 'public/icon.png',
+  },
 };
 
 const RootLayout = ({
@@ -13,7 +16,6 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="ko">
-      <link rel="icon" href="public/icon.png" sizes="any" />
       <body>{children}</body>
     </html>
   );

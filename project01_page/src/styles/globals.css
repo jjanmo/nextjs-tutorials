@@ -1,6 +1,9 @@
+@import './fonts.css';
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #ffffff;
+  --off-white: #f8f8f8;
+  --black: #171717;
 }
 html,
 body {
@@ -9,9 +12,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--off-white);
+  font-family: 'LINE Seed Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

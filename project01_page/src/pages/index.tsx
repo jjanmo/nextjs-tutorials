@@ -1,11 +1,11 @@
-import PageTitle from '@/components/PageTitle'
+import PageTitle from '@/components/common/PageTitle'
 
 const Home = () => {
   return (
     <>
       <PageTitle title="Home" />
 
-      <main>Hello World</main>
+      <main>헬로우월드</main>
     </>
   )
 }

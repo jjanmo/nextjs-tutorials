@@ -4,7 +4,7 @@ interface Props {
   title: string
 }
 
-const PageTitle = ({ title = '' }: Props) => {
+const PageTitle: React.FC<Props> = ({ title = '' }) => {
   return (
     <>
       <Head>

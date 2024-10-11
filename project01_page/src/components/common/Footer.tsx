@@ -1,7 +1,10 @@
 const Footer = () => {
   return (
     <footer>
-      <p>@여기는 푸터입니다.</p>
+      <p>
+        <div>© 2024 NextPage. All rights reserved.</div>
+        <div>Leading innovation in Web Development since 2024.</div>
+      </p>
     </footer>
   )
 }

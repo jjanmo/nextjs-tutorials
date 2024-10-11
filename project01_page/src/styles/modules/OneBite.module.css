@@ -25,3 +25,40 @@
 .searchButton:hover {
   background-color: #e6b70c;
 }
+
+.bookList {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bookItem {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.imageWrapper {
+  position: relative;
+  width: 100px;
+  flex-shrink: 0;
+
+  & img {
+    object-fit: contain;
+  }
+}
+.bookTitle {
+  font-size: 20px;
+  font-weight: 800;
+}
+.bookSubTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+.bookDescription {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #34495e;
+}

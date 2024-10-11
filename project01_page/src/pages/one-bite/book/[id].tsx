@@ -4,8 +4,7 @@ const BookDetail = () => {
   const {
     query: { id },
   } = useRouter()
-  console.log(id)
-  return <div>Book Detail</div>
+  return <div>Book Detail {`${id}`}</div>
 }
 
 export default BookDetail

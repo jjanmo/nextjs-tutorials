@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
     <footer>
-      <p>
-        <div>© 2024 NextPage. All rights reserved.</div>
-        <div>Leading innovation in Web Development since 2024.</div>
-      </p>
+      <div>
+        <p>© 2024 NextPage. All rights reserved.</p>
+        <p>Leading innovation in Web Development since 2024.</p>
+      </div>
     </footer>
   )
 }

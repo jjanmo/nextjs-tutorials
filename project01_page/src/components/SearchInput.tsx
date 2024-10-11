@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '@/styles/OneBite.module.css'
+import styles from '@/styles/modules/OneBite.module.css'
 
 const SearchInput = () => {
   const [text, setText] = useState('')
@@ -22,13 +22,13 @@ const SearchInput = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
-        className={styles['search-input']}
+        className={styles.searchInput}
         type="text"
         placeholder="검색어를 입력하세요"
         value={text}
         onChange={handleChange}
       />
-      <button className={styles['search-button']} type="submit">
+      <button className={styles.searchButton} type="submit">
         검색
       </button>
     </form>

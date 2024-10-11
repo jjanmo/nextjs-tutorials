@@ -1,27 +1,16 @@
-.container {
-  max-width: 760px;
-  min-height: 100vh;
-  padding: 20px;
-  margin: auto;
-  background-color: var(--white);
-}
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
+/* OneBite 카테고리에 대한 스타일 */
+
 .form {
   display: flex;
 }
-.search-input {
+.searchInput {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   outline: none;
 }
-.search-button {
+.searchButton {
   width: 100px;
   margin-left: 10px;
   flex-shrink: 0;
@@ -33,6 +22,6 @@
   cursor: pointer;
   transition: 0.5s;
 }
-.search-button:hover {
+.searchButton:hover {
   background-color: #e6b70c;
 }

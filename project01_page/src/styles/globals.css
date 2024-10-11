@@ -4,6 +4,8 @@
   --white: #ffffff;
   --off-white: #f8f8f8;
   --black: #171717;
+  --nav-height: 50px;
+  --footer-height: 60px;
 }
 html,
 body {

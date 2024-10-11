@@ -17,7 +17,7 @@ const Navigation = () => {
     <nav className={styles.navigationContainer}>
       <ul className={styles.navigationList}>
         {NAVIGATION_MAP.map(({ name, path }) => (
-          <li key={path} className={styles.navigtaionItem}>
+          <li key={path} className={styles.navigationItem}>
             <Link href={path}>{name}</Link>
           </li>
         ))}

@@ -23,7 +23,7 @@
   & + & {
     margin-left: 10px;
   }
-  &:hover {
-    border-bottom: 2px solid #fdcb6e;
-  }
+}
+.active {
+  border-bottom: 2px solid #fdcb6e;
 }

@@ -1,7 +1,7 @@
 import OneBiteLayout from '@/components/layouts/OneBiteLayout'
 
 const OneBite = () => {
-  return <div>This is OneBite Page</div>
+  return <div></div>
 }
 
 export default OneBite

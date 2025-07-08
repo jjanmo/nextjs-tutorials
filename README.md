@@ -2,9 +2,13 @@
 
 > Next.js로 작은 프로젝트들을 만들어보는 저장소 🔖
 
+## Project01_page
+
+- Next.js `Page Router`를 이용한 앱 만들기
+
 ## Project01_app [-ing]
 
-- Next.js `App Router`를 이용한 여러가지 기능을 가진 복합앱
+- Next.js `App Router`를 이용한 복합앱 만들기
 
   <details>
     <summary>Features</summary>
@@ -24,3 +28,7 @@
 - Simple Movie App with **Infinite Scroll** made with **Next.js(v12)**
 
   > ref: Next12 in [NomadCoders](https://nomadcoders.co/nextjs-fundamentals)
+
+## Project03 [-ing]
+
+> Supabase CRUD 체험기 ⚾️ with App Router

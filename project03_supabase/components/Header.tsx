@@ -3,7 +3,7 @@
 import * as styles from '@/styles/header.css';
 import Image from 'next/image';
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={styles.container}>
       <div className={styles.logoContainer}>
@@ -13,3 +13,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

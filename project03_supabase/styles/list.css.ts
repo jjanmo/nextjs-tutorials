@@ -13,20 +13,20 @@ export const buttonWrapper = style({
   position: 'sticky',
   top: '0',
   width: '100%',
-  padding: '10px 16px',
+  padding: '10px 16px 0',
   backgroundColor: '#E3FEF3',
 });
 export const button = style({
   width: '100%',
-  height: '48px',
-  border: '2px solid #46DDA1',
+  padding: '8px 0',
+  border: '1px solid #46DDA1',
   borderRadius: '8px',
-  fontSize: '32px',
   color: '#46DDA1',
   backgroundColor: 'white',
   cursor: 'pointer',
   outline: 'none',
   transition: 'transform 0.1s ease-in-out',
+  fontSize: '18px',
   selectors: {
     '&:active': {
       transform: 'scale(0.98)',

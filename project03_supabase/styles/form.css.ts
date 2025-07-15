@@ -26,6 +26,11 @@ export const textarea = style({
   fontSize: '18px',
   resize: 'none',
 });
+export const buttonsContainer = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '16px',
+});
 export const button = style({
   width: '100%',
   padding: '12px 0',

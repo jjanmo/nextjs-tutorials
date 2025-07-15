@@ -1,14 +1,12 @@
 import Header from '@/components/Header';
-import Form from '@/components/Form';
-import List from '@/components/List';
+import Section from '@/components/Section';
 
 const Home = () => {
   return (
     <>
       <Header />
       <main>
-        <List />
-        <Form />
+        <Section />
       </main>
     </>
   );

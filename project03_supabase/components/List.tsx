@@ -47,8 +47,11 @@ const DUMMY_DATA = [
 const List = () => {
   return (
     <div className={styles.container}>
-      <button className={styles.button}> + </button>
-      <ul>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.button}> + </button>
+      </div>
+
+      <ul className={styles.list}>
         {DUMMY_DATA.map((item) => (
           <li key={item.id} className={styles.item}>
             {item.title}

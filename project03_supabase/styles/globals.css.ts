@@ -11,3 +11,14 @@ globalStyle('a', {
   textDecoration: 'none',
 });
 
+globalStyle('body', {
+  maxWidth: '1200px',
+  margin: '0 auto',
+});
+
+globalStyle('main', {
+  width: '100%',
+  margin: '0 auto',
+  display: 'grid',
+  gridTemplateColumns: '1fr 3fr',
+});

@@ -31,12 +31,14 @@ export const buttonsContainer = style({
   justifyContent: 'space-between',
   gap: '16px',
 });
-export const button = style({
+
+export const baseButton = style({
   width: '100%',
   padding: '12px 0',
-  border: '1px solid #000000',
+  border: '1px solid #181818',
   borderRadius: '8px',
   backgroundColor: 'white',
+  color: '#181818',
   cursor: 'pointer',
   outline: 'none',
   transition: 'transform 0.1s ease-in-out',
@@ -46,3 +48,37 @@ export const button = style({
     },
   },
 });
+export const editButton = style([
+  baseButton,
+  {
+    borderColor: '#46DDA1',
+    color: '#46DDA1',
+  },
+]);
+export const saveButton = style([
+  baseButton,
+  {
+    borderColor: '#3FB4FF',
+    color: '#3FB4FF',
+  },
+]);
+export const deleteButton = style([
+  baseButton,
+  {
+    borderColor: '#F64B53',
+    color: '#F64B53',
+  },
+]);
+
+export const disabledButton = style([
+  baseButton,
+  {
+    cursor: 'default',
+    transition: 'none',
+    selectors: {
+      '&:active': {
+        transform: 'none',
+      },
+    },
+  },
+]);

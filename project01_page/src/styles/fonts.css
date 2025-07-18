@@ -1,0 +1,59 @@
+/* 영어 폰트 */
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedSans_Th.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  unicode-range: U+0020-007F;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedSans_Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+0020-007F;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedSans_Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+0020-007F;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedSans_XBd.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  unicode-range: U+0020-007F;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedSans_He.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  unicode-range: U+0020-007F;
+}
+
+/* 한글 폰트 */
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedKR-Th.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+AC00-D7AF;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedKR-Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+AC00-D7AF;
+}
+@font-face {
+  font-family: 'LINE Seed Sans';
+  src: url('/fonts/LINESeedKR-Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+AC00-D7AF;
+}

@@ -59,7 +59,9 @@ const Form: FC<Props> = ({ note }) => {
 
       {!isEdit && (
         <button
-          className={note ? styles.editButton : styles.disabledButton}
+          className={styles.button({
+            type: note ? 'edit' : 'disabled',
+          })}
           type="button"
           onClick={handleEditClick}
           disabled={!note}
@@ -69,10 +71,16 @@ const Form: FC<Props> = ({ note }) => {
       )}
       {isEdit && (
         <div className={styles.buttonsContainer}>
-          <button className={styles.deleteButton} type="button" onClick={handleDeleteClick}>
+          <button
+            className={styles.button({
+              type: 'delete',
+            })}
+            type="button"
+            onClick={handleDeleteClick}
+          >
             삭제
           </button>
-          <button className={styles.saveButton} type="submit">
+          <button className={styles.button({ type: 'save' })} type="submit">
             저장
           </button>
         </div>

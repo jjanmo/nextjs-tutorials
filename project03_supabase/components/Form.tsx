@@ -1,45 +1,67 @@
+'use client';
+
 import * as styles from '@/styles/form.css';
-import { FC, FormEvent, useEffect, useRef, useState } from 'react';
-import { Note } from '@/types';
+import { type FC, type FormEvent, useEffect, useRef, useState } from 'react';
+import type { FormType, Note } from '@/types';
+import { createNote, deleteNote, patchNote } from '@/libs/supabase';
 
 interface Props {
   note: Note | null;
+  formType: FormType | null;
+  onSaveAfter: (note: Note) => void;
+  onEditAfter: (note: Note) => void;
+  onDeleteAfter: VoidFunction;
 }
 
-const Form: FC<Props> = ({ note }) => {
+const Form: FC<Props> = ({ note, formType, onSaveAfter, onEditAfter, onDeleteAfter }) => {
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [isEdit, setIsEdit] = useState(false);
+  const [content, setContent] = useState('');
   const titleRef = useRef<HTMLInputElement>(null);
 
-  const handleEditClick = () => {
-    setIsEdit(true);
-    if (titleRef.current) {
-      titleRef.current.focus();
-    }
-  };
-  const handleSaveClick = (e: FormEvent<HTMLFormElement>) => {
+  const handleCreateClick = async (e: FormEvent<HTMLFormElement>) => {
+    if (!title || !content) return;
     e.preventDefault();
-    console.log('save');
-    setIsEdit(false);
+
+    const response = await createNote({ title, content });
+    if (!response) {
+      alert('노트 등록에 실패했습니다.');
+      return;
+    }
+    onSaveAfter(response);
   };
-  const handleDeleteClick = () => {
-    console.log('delete');
-    // 리스트 삭제 처음 상황으로 돌아가기
-    setIsEdit(false);
-    setTitle('');
-    setDescription('');
+  const handleSaveClick = async (e: FormEvent<HTMLFormElement>) => {
+    if (!title || !content || !note) return;
+    e.preventDefault();
+
+    const response = await patchNote(note.id, { title, content });
+    if (!response) {
+      alert('노트 수정에 실패했습니다.');
+      return;
+    }
+
+    onEditAfter(response);
+  };
+  const handleDeleteClick = async () => {
+    if (!note) return;
+
+    const response = await deleteNote(note.id);
+    if (!response) {
+      alert('노트 삭제에 실패했습니다.');
+      return;
+    }
+
+    onDeleteAfter();
   };
 
   useEffect(() => {
     if (!note) return;
 
     setTitle(note.title);
-    setDescription(note.description);
+    setContent(note.content);
   }, [note]);
 
   return (
-    <form className={styles.form} onSubmit={handleSaveClick}>
+    <form className={styles.form} onSubmit={formType === 'create' ? handleCreateClick : handleSaveClick}>
       <input
         ref={titleRef}
         className={styles.input}
@@ -47,29 +69,26 @@ const Form: FC<Props> = ({ note }) => {
         placeholder="노트의 제목을 입력하세요"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        readOnly={!isEdit}
+        autoFocus
       />
       <textarea
         className={styles.textarea}
         placeholder="노트의 내용을 입력하세요"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        readOnly={!isEdit}
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
       />
 
-      {!isEdit && (
+      {formType === 'create' && (
         <button
           className={styles.button({
-            type: note ? 'edit' : 'disabled',
+            type: 'save',
           })}
-          type="button"
-          onClick={handleEditClick}
-          disabled={!note}
+          type="submit"
         >
-          수정
+          등록
         </button>
       )}
-      {isEdit && (
+      {formType === 'edit' && (
         <div className={styles.buttonsContainer}>
           <button
             className={styles.button({

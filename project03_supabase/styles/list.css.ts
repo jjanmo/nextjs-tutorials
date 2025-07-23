@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 export const container = style({
   maxWidth: '300px',
@@ -39,19 +40,35 @@ export const list = style({
   margin: '16px 0',
   display: 'flex',
   flexDirection: 'column',
-  gap: '4px',
 });
-export const item = style({
-  width: '100%',
-  padding: '8px 16px',
-  color: '#000000',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  listStyle: 'none',
-  transition: 'background-color 0.1s ease-in-out',
-  selectors: {
-    '&:hover': {
-      backgroundColor: '#D1F6E8',
+export const item = recipe({
+  base: {
+    width: '100%',
+    padding: '8px 12px',
+    color: '#000000',
+    borderRadius: '4px',
+    border: '1px solid transparent',
+    cursor: 'pointer',
+    listStyle: 'none',
+    transition: 'background-color 0.1s ease-in-out',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    selectors: {
+      '&:hover': {
+        backgroundColor: '#D1F6E8',
+      },
+    },
+  },
+  variants: {
+    active: {
+      true: {
+        border: '1px solid #3AA0FF',
+        color: '#3AA0FF',
+        '&:hover': {
+          backgroundColor: 'unset',
+        },
+      },
     },
   },
 });

@@ -1,0 +1,29 @@
+/* Common 컴퍼넌트에 대한 스타일 */
+
+.navigationContainer {
+  height: var(--nav-height);
+  display: flex;
+  background-color: #ffeaa7;
+  border-bottom: 2px solid #f6e58d;
+}
+.navigationList {
+  list-style: none;
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.navigationItem {
+  padding: 1px 4px;
+  transition: 0.5s;
+  border-bottom: 2px solid transparent;
+
+  & + & {
+    margin-left: 10px;
+  }
+}
+.active {
+  border-bottom: 2px solid #fdcb6e;
+}

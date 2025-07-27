@@ -60,6 +60,14 @@ const Form: FC<Props> = ({ note, formType, onSaveAfter, onEditAfter, onDeleteAft
     setContent(note.content);
   }, [note]);
 
+  useEffect(() => {
+    if (formType === 'create') {
+      setTitle('');
+      setContent('');
+      titleRef.current?.focus();
+    }
+  }, [formType]);
+
   return (
     <form className={styles.form} onSubmit={formType === 'create' ? handleCreateClick : handleSaveClick}>
       <input

@@ -19,8 +19,8 @@ const Form: FC<Props> = ({ note, formType, onSaveAfter, onEditAfter, onDeleteAft
   const titleRef = useRef<HTMLInputElement>(null);
 
   const handleCreateClick = async (e: FormEvent<HTMLFormElement>) => {
-    if (!title || !content) return;
     e.preventDefault();
+    if (!title || !content) return;
 
     const response = await createNote({ title, content });
     if (!response) {

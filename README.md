@@ -29,6 +29,6 @@
 
   > ref: Next12 in [NomadCoders](https://nomadcoders.co/nextjs-fundamentals)
 
-## Project03 [-ing]
+## Project03 [done]
 
 > Supabase CRUD 체험기 ⚾️ with App Router

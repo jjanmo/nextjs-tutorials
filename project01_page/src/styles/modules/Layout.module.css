@@ -1,0 +1,15 @@
+/* Layout 컴퍼넌트에 대한 스타일 */
+
+.oneBiteLayoutContainer {
+  max-width: 760px;
+  min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+  padding: 20px;
+  margin: auto;
+  background-color: var(--white);
+}
+.oneBiteLayoutTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
